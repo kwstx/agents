@@ -1,0 +1,25 @@
+# Core ML & Data
+torch>=2.0.0
+transformers>=4.0.0
+scikit-learn
+numpy
+pandas
+
+# Visualization & Dashboards
+streamlit
+plotly
+matplotlib
+seaborn
+
+# Local Data Storage
+tinydb
+
+# Network/Async (Standard library 'asyncio' includes, but 'aiohttp' is often useful for agents)
+# asyncio is built-in
+
+# Dev Tools
+pytest
+pytest-asyncio
+black
+flake8
+psutil
