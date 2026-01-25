@@ -14,6 +14,7 @@ class GridAgent(BaseAgent):
         self.state["env_type"] = "GridWorld"
         self.state["current_position"] = None
         self.state["total_reward"] = 0.0
+        self.step_delay = 0.1 # Default delay for visualization
 
     async def process_task(self, task: Any) -> Any:
         if task == "navigate_to_goal":
@@ -74,8 +75,10 @@ class GridAgent(BaseAgent):
             # We explicitly save here to get frame-by-frame visualization potential
             self.save_checkpoint("navigate_to_goal", {"step": steps, "action": action, "reward": reward})
             
+            
             steps += 1
-            await asyncio.sleep(0.1) # Simulate processing time
+            if self.step_delay > 0:
+                await asyncio.sleep(self.step_delay)
 
         final_status = "Success" if done else "Max steps reached"
         self.logger.info(f"Navigation finished: {final_status}")

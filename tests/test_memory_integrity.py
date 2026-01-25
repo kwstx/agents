@@ -1,118 +1,88 @@
 import pytest
-import asyncio
-from agents.base_agent import BaseAgent
-from utils.message_bus import MessageBus
+import shutil
+import os
+import json
+from utils.memory import Memory
 
-class MemoryAgent(BaseAgent):
-    def __init__(self, agent_id, bus):
-        super().__init__(agent_id, bus)
-        # Using the base self.state["memory"] as the store
-        # In a real app, this might be a list or a more complex structure.
-        # For base_agent, memory is a Dict. Let's assume we store a log list in it.
-        self.state["memory"] = {"history": []}
+DB_PATH = "tests/data/test_memory_integrity.db"
 
-    async def process_task(self, task):
-        # Log the task execution into memory
-        entry = {
-            "action": task, 
-            "status": "completed", 
-            "timestamp": ("mock_time" + str(len(self.state["memory"]["history"])))
-        }
+@pytest.fixture
+def memory_db():
+    # Setup
+    if os.path.exists(DB_PATH):
+        os.remove(DB_PATH)
+    dirname = os.path.dirname(DB_PATH)
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
         
-        # Simulate state changes based on task
-        if task == "Perform_Work":
-            self.state["status"] = "working"
-            await asyncio.sleep(0.2) # Simulate work duration
-        elif task == "Simulate_Failure":
-            self.state["status"] = "failed"
-            entry["status"] = "failed"
-        elif task == "Recover":
-            self.state["status"] = "active"
-            
-        self.state["memory"]["history"].append(entry)
+    mem = Memory(DB_PATH)
+    yield mem
+    # Teardown
+    mem.close()
+    if os.path.exists(DB_PATH):
+        try:
+            os.remove(DB_PATH)
+        except PermissionError:
+            pass # Sometimes windows holds lock briefly
 
-    def get_history(self):
-        return self.state["memory"]["history"]
+def test_persistence_basic(memory_db):
+    """Verify that data written is persisted after close/reopen."""
+    memory_db.add_memory("Agent_X", "action", "Moved North")
+    
+    # Close and Re-open to simulate restart
+    memory_db.close()
+    
+    mem2 = Memory(DB_PATH)
+    results = mem2.query_memory("Agent_X")
+    
+    assert len(results) == 1
+    assert results[0]["content"] == "Moved North"
+    assert results[0]["agent_id"] == "Agent_X"
+    mem2.close()
 
-@pytest.mark.asyncio
-async def test_long_sequence_retention():
-    """Verify that the agent retains a long history of actions without corruption."""
-    bus = MessageBus()
-    agent = MemoryAgent("MemBot", bus)
-    await agent.start()
+def test_schema_full_fields():
+    """Verify all schema fields are stored and retrieved correctly."""
+    mem = Memory(DB_PATH + "_schema")
     
-    # sequence of 100 actions
-    for i in range(100):
-        await agent.add_task(f"Action_{i}")
-        
-    # Wait for processing (100 items might take a split second)
-    # Since tasks are processed sequentially in the loop, we just need enough time.
-    # A safer way in tests might be checking len(), but here we sleep briefly.
-    await asyncio.sleep(0.5)
+    complex_content = {"target": "box", "velocity": 0.5}
+    sim_context = {"weather": "rainy", "tick": 100}
     
-    history = agent.get_history()
-    assert len(history) == 100
-    assert history[0]["action"] == "Action_0"
-    assert history[99]["action"] == "Action_99"
+    mem.add_memory(
+        agent_id="Agent_Y",
+        type="observation",
+        content=complex_content,
+        sim_context=sim_context
+    )
     
-    await agent.stop()
+    results = mem.query_memory(agent_id="Agent_Y")
+    entry = results[0]
+    
+    assert entry["type"] == "observation"
+    assert isinstance(entry["content"], dict)
+    assert entry["content"]["target"] == "box"
+    assert entry["sim_context"]["weather"] == "rainy"
+    # Timestamp should exist and be a string
+    assert isinstance(entry["timestamp"], str)
+    
+    mem.close()
+    
+    if os.path.exists(DB_PATH + "_schema"):
+        try:
+             os.remove(DB_PATH + "_schema")
+        except: pass
 
-@pytest.mark.asyncio
-async def test_state_updates():
-    """Verify that internal state updates (status) are persisted correctly."""
-    bus = MessageBus()
-    agent = MemoryAgent("StateBot", bus)
-    await agent.start()
+def test_json_serialization_handling():
+    """Ensure non-primitive types are auto-serialized if possible or handled."""
+    mem = Memory(DB_PATH + "_json")
     
-    assert agent.state["status"] == "active" # Initial start state
+    # List content
+    mem.add_memory("Agent_Z", "list_test", [1, 2, 3])
     
-    await agent.add_task("Perform_Work")
-    await asyncio.sleep(0.1)
-    assert agent.state["status"] == "working" # After processing, it sets to 'active' in base loop? 
-    # Wait, base_agent.py _process_tasks sets status to "working" then "active" after done.
-    # Ah, my MemoryAgent.process_task sets it to "working".
-    # But immediately after process_task returns, BaseAgent sets it back to "active".
-    # So to test "working", we'd need to inspect it *during* the task (hard in async test without mocks)
-    # OR we check if the memory log captured the "failed" status which is persistent in history.
+    results = mem.query_memory("Agent_Z")
+    assert results[0]["content"] == [1, 2, 3]
     
-    await agent.add_task("Simulate_Failure")
-    await asyncio.sleep(0.1)
-    
-    history = agent.get_history()
-    failure_entry = history[-1]
-    assert failure_entry["action"] == "Simulate_Failure"
-    assert failure_entry["status"] == "failed"
-    
-    # BaseAgent logic sets status back to 'active' unless we override that behavior.
-    # But let's check if my manual state set inside the task logic was at least theoretically correct 
-    # (even if overwritten later).
-    # Actually, let's verify the persistent memory log, which is the "memory" part of this test.
-    
-    await agent.stop()
-
-@pytest.mark.asyncio
-async def test_retrieval_consistency():
-    """Verify we can retrieve specific complex objects from memory."""
-    bus = MessageBus()
-    agent = MemoryAgent("RecallBot", bus)
-    await agent.start()
-    
-    # Add complex tasks
-    await agent.add_task("Step1")
-    await agent.add_task("Simulate_Failure")
-    await agent.add_task("Recover")
-    
-    await asyncio.sleep(0.1)
-    
-    history = agent.get_history()
-    
-    # Find the failure
-    failures = [x for x in history if x["status"] == "failed"]
-    assert len(failures) == 1
-    assert failures[0]["action"] == "Simulate_Failure"
-    
-    # context recall
-    assert len(history) == 3
-    assert history[2]["action"] == "Recover"
-    
-    await agent.stop()
+    mem.close()
+    if os.path.exists(DB_PATH + "_json"):
+        try:
+             os.remove(DB_PATH + "_json")
+        except: pass

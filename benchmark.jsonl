@@ -1,0 +1,6 @@
+{"timestamp": 1769293567.2970104, "agent_id": "BenchmarkBot", "action": "RIGHT", "state": [1, 0], "state_hash": "2937337930664262862", "reward": -0.1, "metadata": {"valid_action": true, "duration": 8.106231689453125e-06}}
+{"timestamp": 1769293567.3050666, "agent_id": "BenchmarkBot", "action": "RIGHT", "state": [2, 0], "state_hash": "-4305109422161130188", "reward": -0.1, "metadata": {"valid_action": true, "duration": 1.239776611328125e-05}}
+{"timestamp": 1769293567.312915, "agent_id": "BenchmarkBot", "action": "UP", "state": [2, 1], "state_hash": "-6992420819480999506", "reward": -0.1, "metadata": {"valid_action": true, "duration": 6.9141387939453125e-06}}
+{"timestamp": 1769293567.3232608, "agent_id": "BenchmarkBot", "action": "UP", "state": [2, 2], "state_hash": "-6376454591365952384", "reward": -0.1, "metadata": {"valid_action": true, "duration": 7.867813110351562e-06}}
+{"timestamp": 1769293567.3301902, "agent_id": "BenchmarkBot", "action": "LEFT", "state": [1, 2], "state_hash": "7259812326997327096", "reward": -0.1, "metadata": {"valid_action": true, "duration": 5.7220458984375e-06}}
+{"timestamp": 1769293567.337396, "agent_id": "BenchmarkBot", "action": "DOWN", "state": [1, 1], "state_hash": "-202951369368256599", "reward": -0.1, "metadata": {"valid_action": true, "duration": 7.62939453125e-06}}

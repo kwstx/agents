@@ -1,0 +1,3 @@
+{"timestamp": 1769292498.7100425, "agent_id": "SingleBot", "action": "RIGHT", "state": [1, 0], "state_hash": "5347301650326261489", "reward": -0.1, "metadata": {"valid_action": true}}
+{"timestamp": 1769292499.2791896, "agent_id": "AgentA", "action": "RIGHT", "state": [1, 0], "state_hash": "5347301650326261489", "reward": -0.1, "metadata": {"valid_action": true}}
+{"timestamp": 1769292499.3658636, "agent_id": "AgentB", "action": "UP", "state": [1, 1], "state_hash": "-595434921714163767", "reward": -0.1, "metadata": {"valid_action": true}}

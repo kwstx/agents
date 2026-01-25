@@ -1,0 +1,36 @@
+INFO:Agent.TimeKeeper:Agent TimeKeeper starting...
+INFO:Agent.TimeKeeper:[task_added] {'task': 'Task_A'}
+INFO:Agent.TimeKeeper:[task_started] {'task': 'Task_A'}
+ERROR:Agent.TimeKeeper:Failed to write to memory: Object of type datetime is not JSON serializable
+INFO:Agent.TimeKeeper:[task_completed] {'task': 'Task_A'}
+INFO:Agent.TimeKeeper:[task_added] {'task': 'Task_B'}
+INFO:Agent.TimeKeeper:[task_started] {'task': 'Task_B'}
+ERROR:Agent.TimeKeeper:Failed to write to memory: Object of type datetime is not JSON serializable
+INFO:Agent.TimeKeeper:[task_completed] {'task': 'Task_B'}
+INFO:Agent.TimeKeeper:Agent TimeKeeper stopping...
+
+Total Logs: 8
+DEBUG LOG: task_added - {'task': 'Task_A'}
+DEBUG LOG: task_started - {'task': 'Task_A'}
+DEBUG LOG: action - Starting Task_A
+DEBUG LOG: task_completed - {'task': 'Task_A'}
+DEBUG LOG: task_added - {'task': 'Task_B'}
+DEBUG LOG: task_started - {'task': 'Task_B'}
+DEBUG LOG: action - Starting Task_B
+DEBUG LOG: task_completed - {'task': 'Task_B'}
+[2026-01-25T12:39:29.446231] task_added: {'task': 'Task_A'}
+[2026-01-25T12:39:29.449964] task_started: {'task': 'Task_A'}
+[2026-01-25T12:39:29.450908] action: Starting Task_A
+[2026-01-25T12:39:29.474393] task_completed: {'task': 'Task_A'}
+[2026-01-25T12:39:29.651721] task_added: {'task': 'Task_B'}
+[2026-01-25T12:39:29.654412] task_started: {'task': 'Task_B'}
+[2026-01-25T12:39:29.655272] action: Starting Task_B
+[2026-01-25T12:39:29.673047] task_completed: {'task': 'Task_B'}
+Traceback (most recent call last):
+  File "C:\Users\galan\potion\agent_forge_mvp\tests\verify_memory_replay.py", line 121, in <module>
+    test_causal_replay()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\galan\potion\agent_forge_mvp\tests\verify_memory_replay.py", line 115, in test_causal_replay
+    assert reconstructed_state["status"] == "idle"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

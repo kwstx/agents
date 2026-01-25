@@ -22,5 +22,5 @@ logging:
   save_path: "logs/"
 
 storage:
-  type: "tinydb"
-  path: "data/db.json"
+  type: "sqlite"
+  path: "data/memory.db"
