@@ -1,0 +1,247 @@
+VerticalStress - 
+>>> START STRESS TEST: High Density (80% Occupancy) <<<
+VerticalStress - Config: {'size': 5}, Agents: 20
+MessageBus - MessageBus started.
+Agent.Agent-0 - Agent Agent-0 starting...
+MessageBus - Registered agent 'Agent-0'
+Agent.Agent-0 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-1 - Agent Agent-1 starting...
+MessageBus - Registered agent 'Agent-1'
+Agent.Agent-1 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-2 - Agent Agent-2 starting...
+MessageBus - Registered agent 'Agent-2'
+Agent.Agent-2 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-3 - Agent Agent-3 starting...
+MessageBus - Registered agent 'Agent-3'
+Agent.Agent-3 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-4 - Agent Agent-4 starting...
+MessageBus - Registered agent 'Agent-4'
+Agent.Agent-4 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-5 - Agent Agent-5 starting...
+MessageBus - Registered agent 'Agent-5'
+Agent.Agent-5 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-6 - Agent Agent-6 starting...
+MessageBus - Registered agent 'Agent-6'
+Agent.Agent-6 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-7 - Agent Agent-7 starting...
+MessageBus - Registered agent 'Agent-7'
+Agent.Agent-7 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-8 - Agent Agent-8 starting...
+MessageBus - Registered agent 'Agent-8'
+Agent.Agent-8 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-9 - Agent Agent-9 starting...
+MessageBus - Registered agent 'Agent-9'
+Agent.Agent-9 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-10 - Agent Agent-10 starting...
+MessageBus - Registered agent 'Agent-10'
+Agent.Agent-10 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-11 - Agent Agent-11 starting...
+MessageBus - Registered agent 'Agent-11'
+Agent.Agent-11 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-12 - Agent Agent-12 starting...
+MessageBus - Registered agent 'Agent-12'
+Agent.Agent-12 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-13 - Agent Agent-13 starting...
+MessageBus - Registered agent 'Agent-13'
+Agent.Agent-13 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-14 - Agent Agent-14 starting...
+MessageBus - Registered agent 'Agent-14'
+Agent.Agent-14 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-15 - Agent Agent-15 starting...
+MessageBus - Registered agent 'Agent-15'
+Agent.Agent-15 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-16 - Agent Agent-16 starting...
+MessageBus - Registered agent 'Agent-16'
+Agent.Agent-16 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-17 - Agent Agent-17 starting...
+MessageBus - Registered agent 'Agent-17'
+Agent.Agent-17 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-18 - Agent Agent-18 starting...
+MessageBus - Registered agent 'Agent-18'
+Agent.Agent-18 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-19 - Agent Agent-19 starting...
+MessageBus - Registered agent 'Agent-19'
+Agent.Agent-19 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-0 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-1 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-2 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-2 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-3 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-3 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-4 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-4 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-5 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-5 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-6 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-6 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-7 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-7 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-8 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-8 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-9 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-9 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-10 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-10 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-11 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-11 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-12 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-12 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-13 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-13 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-14 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-14 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-15 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-15 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-16 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-16 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-17 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-17 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-18 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-18 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-19 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-19 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-0 - Starting logistics loop
+Agent.Agent-0 - New Goal: pickup at (0, 3)
+Agent.Agent-1 - Starting logistics loop
+Agent.Agent-1 - New Goal: pickup at (0, 2)
+Agent.Agent-2 - Starting logistics loop
+Agent.Agent-2 - New Goal: pickup at (0, 1)
+Agent.Agent-3 - Starting logistics loop
+Agent.Agent-3 - New Goal: pickup at (0, 4)
+Agent.Agent-4 - Starting logistics loop
+Agent.Agent-4 - New Goal: pickup at (0, 4)
+Agent.Agent-5 - Starting logistics loop
+Agent.Agent-5 - New Goal: pickup at (0, 1)
+Agent.Agent-6 - Starting logistics loop
+Agent.Agent-6 - New Goal: pickup at (0, 3)
+Agent.Agent-7 - Starting logistics loop
+Agent.Agent-7 - New Goal: pickup at (0, 0)
+Agent.Agent-8 - Starting logistics loop
+Agent.Agent-8 - New Goal: pickup at (0, 2)
+Agent.Agent-9 - Starting logistics loop
+Agent.Agent-9 - New Goal: pickup at (0, 1)
+Agent.Agent-10 - Starting logistics loop
+Agent.Agent-10 - New Goal: pickup at (0, 2)
+Agent.Agent-11 - Starting logistics loop
+Agent.Agent-11 - New Goal: pickup at (0, 0)
+Agent.Agent-12 - Starting logistics loop
+Agent.Agent-12 - New Goal: pickup at (0, 2)
+Agent.Agent-13 - Starting logistics loop
+Agent.Agent-13 - New Goal: pickup at (0, 0)
+Agent.Agent-14 - Starting logistics loop
+Agent.Agent-14 - New Goal: pickup at (0, 0)
+Agent.Agent-15 - Starting logistics loop
+Agent.Agent-15 - New Goal: pickup at (0, 2)
+Agent.Agent-16 - Starting logistics loop
+Agent.Agent-16 - New Goal: pickup at (0, 1)
+Agent.Agent-17 - Starting logistics loop
+Agent.Agent-17 - New Goal: pickup at (0, 3)
+Agent.Agent-18 - Starting logistics loop
+Agent.Agent-18 - New Goal: pickup at (0, 2)
+Agent.Agent-19 - Starting logistics loop
+Agent.Agent-19 - New Goal: pickup at (0, 0)
+VerticalStress - --- Analyzing Results for High Density (80% Occupancy) ---
+VerticalStress - Result: 0/20 Agents Died.
+Agent.Agent-0 - Agent Agent-0 stopping...
+Agent.Agent-1 - Agent Agent-1 stopping...
+Agent.Agent-2 - Agent Agent-2 stopping...
+Agent.Agent-3 - Agent Agent-3 stopping...
+Agent.Agent-4 - Agent Agent-4 stopping...
+Agent.Agent-5 - Agent Agent-5 stopping...
+Agent.Agent-6 - Agent Agent-6 stopping...
+Agent.Agent-7 - Agent Agent-7 stopping...
+Agent.Agent-8 - Agent Agent-8 stopping...
+Agent.Agent-9 - Agent Agent-9 stopping...
+Agent.Agent-10 - Agent Agent-10 stopping...
+Agent.Agent-11 - Agent Agent-11 stopping...
+Agent.Agent-12 - Agent Agent-12 stopping...
+Agent.Agent-13 - Agent Agent-13 stopping...
+Agent.Agent-14 - Agent Agent-14 stopping...
+Agent.Agent-15 - Agent Agent-15 stopping...
+Agent.Agent-16 - Agent Agent-16 stopping...
+Agent.Agent-17 - Agent Agent-17 stopping...
+Agent.Agent-18 - Agent Agent-18 stopping...
+Agent.Agent-19 - Agent Agent-19 stopping...
+MessageBus - MessageBus stopped.
+VerticalStress - 
+>>> START STRESS TEST: Resource Scarcity (10x Battery Drain) <<<
+VerticalStress - Config: {'size': 10, 'config': {'battery_drain': 5.0}}, Agents: 5
+MessageBus - MessageBus started.
+Agent.Agent-0 - Agent Agent-0 starting...
+MessageBus - Registered agent 'Agent-0'
+Agent.Agent-0 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-1 - Agent Agent-1 starting...
+MessageBus - Registered agent 'Agent-1'
+Agent.Agent-1 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-2 - Agent Agent-2 starting...
+MessageBus - Registered agent 'Agent-2'
+Agent.Agent-2 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-3 - Agent Agent-3 starting...
+MessageBus - Registered agent 'Agent-3'
+Agent.Agent-3 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-4 - Agent Agent-4 starting...
+MessageBus - Registered agent 'Agent-4'
+Agent.Agent-4 - [task_added] {'task': 'start_logistics'}
+Agent.Agent-0 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-1 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-2 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-2 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-3 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-3 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-4 - [task_started] {'task': 'start_logistics'}
+Agent.Agent-4 - [task_completed] {'task': 'start_logistics'}
+Agent.Agent-0 - Starting logistics loop
+Agent.Agent-0 - New Goal: pickup at (0, 1)
+Agent.Agent-1 - Starting logistics loop
+Agent.Agent-1 - New Goal: pickup at (0, 0)
+Agent.Agent-2 - Starting logistics loop
+Agent.Agent-2 - New Goal: pickup at (0, 6)
+Agent.Agent-3 - Starting logistics loop
+Agent.Agent-3 - New Goal: pickup at (0, 5)
+Agent.Agent-4 - Starting logistics loop
+Agent.Agent-4 - New Goal: pickup at (0, 6)
+Agent.Agent-3 - New Goal: dropoff at (9, 5)
+Agent.Agent-2 - New Goal: dropoff at (9, 3)
+Agent.Agent-1 - New Goal: dropoff at (9, 1)
+Agent.Agent-3 - New Goal: pickup at (0, 0)
+Agent.Agent-0 - New Goal: charge at (0, 9)
+Agent.Agent-0 - Battery low (15.0%), heading to charger
+Agent.Agent-1 - New Goal: charge at (2, 9)
+Agent.Agent-1 - Battery low (15.0%), heading to charger
+Agent.Agent-1 - New Goal: dropoff at (9, 6)
+Agent.Agent-2 - New Goal: charge at (4, 9)
+Agent.Agent-2 - Battery low (15.0%), heading to charger
+Agent.Agent-2 - New Goal: dropoff at (9, 1)
+Agent.Agent-3 - New Goal: charge at (2, 9)
+Agent.Agent-3 - Battery low (15.0%), heading to charger
+Agent.Agent-4 - New Goal: charge at (2, 9)
+Agent.Agent-4 - Battery low (15.0%), heading to charger
+Agent.Agent-1 - New Goal: charge at (2, 9)
+Agent.Agent-1 - Battery low (10.0%), heading to charger
+Agent.Agent-1 - New Goal: dropoff at (9, 0)
+Agent.Agent-2 - New Goal: charge at (0, 9)
+Agent.Agent-2 - Battery low (10.0%), heading to charger
+Agent.Agent-2 - New Goal: dropoff at (9, 6)
+Agent.Agent-0 - Agent finished (e.g. died or done)
+Agent.Agent-1 - New Goal: charge at (4, 9)
+Agent.Agent-1 - Battery low (5.0%), heading to charger
+Agent.Agent-1 - New Goal: dropoff at (9, 0)
+Agent.Agent-1 - Agent finished (e.g. died or done)
+Agent.Agent-2 - New Goal: charge at (3, 9)
+Agent.Agent-2 - Battery low (5.0%), heading to charger
+Agent.Agent-2 - New Goal: dropoff at (9, 6)
+Agent.Agent-2 - Agent finished (e.g. died or done)
+Agent.Agent-3 - Agent finished (e.g. died or done)
+Agent.Agent-4 - Agent finished (e.g. died or done)
+VerticalStress - --- Analyzing Results for Resource Scarcity (10x Battery Drain) ---
+VerticalStress - Result: 1/5 Agents Died.
+Agent.Agent-0 - Agent Agent-0 stopping...
+Agent.Agent-1 - Agent Agent-1 stopping...
+Agent.Agent-2 - Agent Agent-2 stopping...
+Agent.Agent-3 - Agent Agent-3 stopping...
+Agent.Agent-4 - Agent Agent-4 stopping...
+MessageBus - MessageBus stopped.

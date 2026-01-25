@@ -8,7 +8,7 @@ import csv
 from datetime import datetime
 
 from agents.learning_agent import LearningGridAgent
-from models.decision_model import GridDecisionModel
+from models.decision_model import GridDecisionModel, ModelConfig
 from environments.grid_world import GridWorld
 from environments.simulation_engine import SimulationEngine
 from utils.message_bus import MessageBus
@@ -54,14 +54,18 @@ class MetricsHook:
         return None
 
 async def run_simulation_loop():
+    args = parse_args()
+    
     init_logs()
+    
+    logger.info(f"Starting Simulation with {args.agent_count} agents in {args.env_size}x{args.env_size} world.")
     
     # Initialize components
     bus = MessageBus()
     await bus.start()
     
-    env = GridWorld(size=10)
-    model = GridDecisionModel(input_size=4, output_size=4) # UP, DOWN, LEFT, RIGHT
+    env = GridWorld(size=args.env_size)
+    model = GridDecisionModel(ModelConfig(input_size=4, output_size=4)) # UP, DOWN, LEFT, RIGHT
     
     # We use a custom runner loop instead of agent._navigate_to_goal to allow external control
     # So we create the agent but might control it step-by-step
@@ -81,13 +85,32 @@ async def run_simulation_loop():
     # Actually, the plan was to "execute step" in the runner. 
     # So let's instantiate the agent but NOT call `start()`. Instead, we manually step it.
     
-    agent = LearningGridAgent("Agent-007", bus, env, model, hooks=[MetricsHook()])
-    # Initial Reset
-    obs = env.reset()
-    agent.state["current_position"] = obs
-    agent.steps = 0
+    # Create Multiple Agents
+    agents = []
     
-    logger.info("Simulation initialized. Waiting for START command...")
+    # Simple Factory
+    for i in range(args.agent_count):
+        agent_id = f"Agent-{i+1}"
+        if args.agent_type == "collaborative":
+            from agents.collaborative_agent import CollaborativeExplorerAgent
+            agent = CollaborativeExplorerAgent(agent_id, bus, env)
+            agents.append(agent)
+        else:
+            # Default Learning Agent
+            agent = LearningGridAgent(agent_id, bus, env, model, hooks=[MetricsHook()])
+            agents.append(agent)
+            
+    # Start agents (register subscriptions etc)
+    for agent in agents:
+        await agent.start()
+    
+    # Initial Reset for all
+    for agent in agents:
+        obs = env.reset(agent_id=agent.agent_id)
+        agent.state["current_position"] = obs
+        agent.steps = 0
+    
+    logger.info(f"Simulation initialized with {args.agent_type} agents. Waiting for START command...")
 
     while True:
         try:
@@ -110,54 +133,70 @@ async def run_simulation_loop():
                 # Update engine stress
                 engine.stress_config = stress_config
                 
-                # Update agent params
-                if "epsilon" in params:
-                    agent.epsilon = float(params["epsilon"]) # Override epsilon
+                # Update MessageBus Chaos
+                latency_ms = stress_config.get("latency_ms", 0)
+                drop_rate = stress_config.get("drop_rate", 0.0)
+                if latency_ms > 0 or drop_rate > 0:
+                    bus.set_chaos(latency_min=0, latency_max=latency_ms/1000.0, drop_rate=drop_rate)
                 
-                # EXECUTE STEP
+                # EXECUTE STEP for EACH AGENT
                 await engine._apply_stress() # Apply global stress (latency)
                 
-                # 1. Select Action
-                # Accessing internal method or copying logic from LearningGridAgent
-                current_x, current_y = agent.state["current_position"]
-                state_vector = agent._get_state_vector((current_x, current_y), env.goal)
+                for agent in agents:
+                    # Update agent params
+                    if hasattr(agent, "epsilon") and "epsilon" in params:
+                        agent.epsilon = float(params["epsilon"]) 
+                    
+                    # 1. Select Action
+                    if not agent.state.get("done", False):
+                        current_x, current_y = agent.state["current_position"]
+                        
+                        # Polymorphic Action Selection
+                        if isinstance(agent, LearningGridAgent):
+                            state_vector = agent._get_state_vector((current_x, current_y), env.goal)
+                            action_idx = agent.select_action(state_vector) 
+                            actions = ["UP", "DOWN", "LEFT", "RIGHT"]
+                            action = actions[action_idx]
+                        elif hasattr(agent, "select_action"):
+                            # Collaborative Agent takes pos
+                             action = agent.select_action((current_x, current_y))
+                        else:
+                             action = "STAY"
+                        
+                        # 2. Step Environment
+                        start_time = time.time()
+                        obs, reward, done, info = env.step(action, agent_id=agent.agent_id)
+                        
+                        # Failures?
+                        if "failure_rate" in stress_config and random.random() < stress_config["failure_rate"]:
+                            logging.error(f"Simulated Failure for {agent.agent_id}!")
+                            with open(EVENT_LOG, "a") as f:
+                                f.write(json.dumps({"timestamp": datetime.now().isoformat(), "type": "ERROR", "msg": f"Simulated Failure {agent.agent_id}"}) + "\n")
+                            reward = -10
+                        
+                        # Update Agent State
+                        agent.state["current_position"] = obs
+                        agent.steps += 1
+                        
+                        # Collaborative Callback
+                        if hasattr(agent, "on_step_complete"):
+                            await agent.on_step_complete(obs)
+                        
+                        # Log Metric
+                        epsilon_val = getattr(agent, "epsilon", 0.0)
+                        log_learning_metric(agent.steps, agent.agent_id, epsilon_val, reward)
+                        
+                        # If done, reset just this agent? or mark done?
+                        # For continuous sim, let's reset this agent
+                        if done:
+                            obs = env.reset(agent_id=agent.agent_id)
+                            agent.state["current_position"] = obs
+                            logger.info(f"Agent {agent.agent_id} reached goal! Resetting.")
+                            # Optional: Send finding to other agents?
+                            await bus.publish("goal_reached", agent.agent_id, {"pos": env.goal})
                 
-                action_idx = agent.select_action(state_vector) # Need to expose this or replicate logic
-                actions = ["UP", "DOWN", "LEFT", "RIGHT"]
-                action = actions[action_idx]
-                
-                # 2. Step Environment via Engine (handles logging)
-                # But engine.perform_action expects agent_id
-                # And engine wrappers env. But agent has its own env reference.
-                # Let's use the engine to step the env that the agent *also* has reference to (it's the same object)
-                
-                # Update engine env reference just in case? No, passed in init.
-                
-                # Perform Action
-                start_time = time.time()
-                obs, reward, done, info = env.step(action)
-                
-                # Failures?
-                if "failure_rate" in stress_config and random.random() < stress_config["failure_rate"]:
-                    logging.error("Simulated Failure Injection!")
-                    # Log event
-                    with open(EVENT_LOG, "a") as f:
-                        f.write(json.dumps({"timestamp": datetime.now().isoformat(), "type": "ERROR", "msg": "Simulated Failure"}) + "\n")
-                    # Don't update state? Or just penalty?
-                    reward = -10
-                
-                # Update Agent State
-                agent.state["current_position"] = obs
-                agent.steps += 1
-                
-                # Log Metric
-                log_learning_metric(agent.steps, agent.agent_id, agent.epsilon, reward)
-                
-                # If done, reset
-                if done:
-                    obs = env.reset()
-                    agent.state["current_position"] = obs
-                    logger.info("Episode finished. Resetting.")
+                # Render periodically or just log?
+                # env.render() # Spammy if too fast
                 
                 time.sleep(0.1) # Throttle slightly
                 
@@ -168,6 +207,14 @@ async def run_simulation_loop():
             time.sleep(1)
 
     await bus.stop()
+
+def parse_args():
+    import argparse
+    parser = argparse.ArgumentParser(description="Run simulation runner")
+    parser.add_argument("--agent_count", type=int, default=2, help="Number of agents")
+    parser.add_argument("--env_size", type=int, default=10, help="Size of grid world")
+    parser.add_argument("--agent_type", type=str, default="learning", help="Type of agent: learning, collaborative")
+    return parser.parse_args()
 
 if __name__ == "__main__":
     asyncio.run(run_simulation_loop())

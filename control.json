@@ -1,1 +1,1 @@
-{"status": "RUNNING", "stress_config": {"latency_range": [0, 0], "failure_rate": 0}, "agent_params": {"epsilon": 1.0}}
+{"status": "STOPPED"}

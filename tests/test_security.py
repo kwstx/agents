@@ -59,6 +59,9 @@ class TestSecurity(unittest.TestCase):
 
         with open(os.path.join(TEMP_SEC_DIR, "subprocess_agent.py"), "w") as f:
             f.write(SUBPROCESS_AGENT)
+        
+        import importlib
+        importlib.invalidate_caches()
 
     @classmethod
     def tearDownClass(cls):
@@ -66,35 +69,56 @@ class TestSecurity(unittest.TestCase):
         if os.path.exists(TEMP_SEC_DIR):
             shutil.rmtree(TEMP_SEC_DIR)
 
-    def test_timeout_protection(self):
+    async def _timeout_protection_async(self):
         print("\nTesting Execution Timeout...")
-        async def run_timeout():
-             from tests.temp_security.infinite_agent import InfiniteLoopAgent
-             # Loading this one is safe (imports are fine)
-             
-             # Note: AgentRegistry can load it fine
-             agent_cls = AgentRegistry.load_agent("tests.temp_security.infinite_agent", "InfiniteLoopAgent")
-             
-             class MockBus:
-                def register(self, aid): return "token"
-                def subscribe(self, t, h): pass
-                
-             agent = agent_cls("loop_bot", message_bus=MockBus())
-             
-             # Override timeout to be fast for test
-             # BaseAgent timeout is hardcoded to 5.0 currently in the replacement chunk I sent.
-             # Wait, I hardcoded 5.0. Ideally it should be configurable. 
-             # I can patch wait_for? No, too complex.
-             # 5 seconds is acceptable for a test run.
-             
-             print("Please wait 5 seconds for timeout...")
-             result = await agent.process_task("freeze")
-             
-             # agent catches timeout and returns error dict
-             self.assertEqual(result.get("status"), "failed")
-             self.assertEqual(result.get("error"), "Execution Timed Out")
-             
-        asyncio.run(run_timeout())
+        from tests.temp_security.infinite_agent import InfiniteLoopAgent
+        
+        agent_cls = AgentRegistry.load_agent("tests.temp_security.infinite_agent", "InfiniteLoopAgent")
+        
+        class MockBus:
+            def register(self, aid): return "token"
+            def subscribe(self, t, h): pass
+            
+        agent = agent_cls("loop_bot", message_bus=MockBus())
+        
+        # Mock memory setup to avoid DB creation
+        async def mock_setup(): pass
+        agent.setup_memory = mock_setup
+        
+        # Start the agent loop
+        await agent.start()
+        
+        # Add a task that will freeze
+        task_payload = "freeze"
+        await agent.add_task(task_payload)
+        
+        print("Waiting 6 seconds for timeout handling...")
+        await asyncio.sleep(6)
+        
+        await agent.stop()
+        
+        # Verify result via checkpoint
+        # Checkpoint dir: logs/checkpoints/loop_bot
+        checkpoint_dir = os.path.join("logs", "checkpoints", "loop_bot")
+        self.assertTrue(os.path.exists(checkpoint_dir), "Checkpoint directory not created")
+        
+        # Find latest json
+        files = os.listdir(checkpoint_dir)
+        files.sort()
+        latest = files[-1]
+        
+        import json
+        with open(os.path.join(checkpoint_dir, latest), "r") as f:
+            data = json.load(f)
+            
+        print(f"Checkpoint data: {data}")
+        # result string might be stringified dict
+        result_str = data.get("result")
+        # It might be a string representation of a dict or None
+        self.assertIn("Execution Timed Out", str(result_str))
+
+    def test_timeout_protection(self):
+        asyncio.run(self._timeout_protection_async())
         print("Timeout protection verified.")
 
     def test_import_blocking_os(self):

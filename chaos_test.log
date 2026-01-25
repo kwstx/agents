@@ -1,0 +1,62 @@
+ChaosTest - >>> STARTING RESILIENCE (CHAOS) TEST <<<
+MessageBus - MessageBus started.
+Agent.Survivor-0 - Agent Survivor-0 starting...
+MessageBus - Registered agent 'Survivor-0'
+Agent.Survivor-0 - [task_added] {'task': 'start_logistics'}
+Agent.Survivor-1 - Agent Survivor-1 starting...
+MessageBus - Registered agent 'Survivor-1'
+Agent.Survivor-1 - [task_added] {'task': 'start_logistics'}
+Agent.Survivor-2 - Agent Survivor-2 starting...
+MessageBus - Registered agent 'Survivor-2'
+Agent.Survivor-2 - [task_added] {'task': 'start_logistics'}
+Agent.Survivor-3 - Agent Survivor-3 starting...
+MessageBus - Registered agent 'Survivor-3'
+Agent.Survivor-3 - [task_added] {'task': 'start_logistics'}
+Agent.Survivor-0 - [task_started] {'task': 'start_logistics'}
+Agent.Survivor-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Survivor-1 - [task_started] {'task': 'start_logistics'}
+Agent.Survivor-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Survivor-2 - [task_started] {'task': 'start_logistics'}
+Agent.Survivor-2 - [task_completed] {'task': 'start_logistics'}
+Agent.Survivor-3 - [task_started] {'task': 'start_logistics'}
+Agent.Survivor-3 - [task_completed] {'task': 'start_logistics'}
+Agent.Survivor-0 - Starting logistics loop
+Agent.Survivor-0 - New Goal: pickup at (0, 0)
+Agent.Survivor-1 - Starting logistics loop
+Agent.Survivor-1 - New Goal: pickup at (0, 0)
+Agent.Survivor-2 - Starting logistics loop
+Agent.Survivor-2 - New Goal: pickup at (0, 1)
+Agent.Survivor-3 - Starting logistics loop
+Agent.Survivor-3 - New Goal: pickup at (0, 1)
+Agent.Survivor-0 - New Goal: dropoff at (5, 0)
+Agent.Survivor-2 - New Goal: dropoff at (5, 2)
+Agent.Survivor-0 - New Goal: pickup at (0, 0)
+Agent.Survivor-0 - New Goal: dropoff at (5, 3)
+ChaosTest - CHAOS: Simulating Network Failure (Message Bus Paused)
+ChaosTest - CHAOS: Corrupting memory of Survivor-1
+Agent.Survivor-1 - New Goal: pickup at (0, 2)
+Agent.Survivor-1 - New Goal: dropoff at (5, 3)
+Agent.Survivor-0 - New Goal: pickup at (0, 1)
+Agent.Survivor-1 - New Goal: pickup at (0, 2)
+ChaosTest - CHAOS: Simulating Network Failure (Message Bus Paused)
+ChaosTest - CHAOS: Corrupting memory of Survivor-0
+Agent.Survivor-0 - New Goal: pickup at (0, 2)
+Agent.Survivor-0 - New Goal: dropoff at (5, 0)
+Agent.Survivor-1 - New Goal: dropoff at (5, 1)
+Agent.Survivor-0 - New Goal: pickup at (0, 5)
+Agent.Survivor-1 - New Goal: pickup at (0, 4)
+ChaosTest - CHAOS: Killing Survivor-3 MID-TASK!
+Agent.Survivor-3 - Agent Survivor-3 stopping...
+ChaosTest - CHAOS: Simulating Network Failure (Message Bus Paused)
+ChaosTest - CHAOS: Corrupting memory of Survivor-2
+Agent.Survivor-2 - New Goal: dropoff at (5, 3)
+ChaosTest - CHAOS: Simulating Network Failure (Message Bus Paused)
+ChaosTest - CHAOS: Corrupting memory of Survivor-1
+Agent.Survivor-1 - New Goal: pickup at (0, 2)
+ChaosTest - CHAOS: Killing Survivor-0 MID-TASK!
+Agent.Survivor-0 - Agent Survivor-0 stopping...
+ChaosTest - Test End. Active Agents: 2/4
+ChaosTest - [SUCCESS] System logged deaths and survived partial failure.
+Agent.Survivor-1 - Agent Survivor-1 stopping...
+Agent.Survivor-2 - Agent Survivor-2 stopping...
+MessageBus - MessageBus stopped.

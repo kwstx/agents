@@ -11,16 +11,21 @@ class GridWorld(BaseEnvironment):
     
     def __init__(self, size: int = 5):
         self.size = size
-        self.state = (0, 0)
+        # Track state per agent: {agent_id: (x, y)}
+        self.agents: Dict[str, Tuple[int, int]] = {}
         self.goal = (size - 1, size - 1)
         
-    def reset(self) -> Tuple[int, int]:
-        self.state = (0, 0)
-        return self.state
+    def reset(self, agent_id: str = "default") -> Tuple[int, int]:
+        """Resets the specified agent to the starting position."""
+        self.agents[agent_id] = (0, 0)
+        return self.agents[agent_id]
         
-    def step(self, action: str) -> Tuple[Tuple[int, int], float, bool, Dict[str, Any]]:
-        x, y = self.state
-        reward = -0.1  # Small penalty for each step to encourage efficiency
+    def step(self, action: str, agent_id: str = "default") -> Tuple[Tuple[int, int], float, bool, Dict[str, Any]]:
+        if agent_id not in self.agents:
+            self.reset(agent_id)
+            
+        x, y = self.agents[agent_id]
+        reward = -0.1  # Small penalty
         done = False
         info = {"valid_action": True}
         
@@ -35,37 +40,44 @@ class GridWorld(BaseEnvironment):
         elif action == "LEFT":
             new_x -= 1
         else:
-            # Invalid action
             info["valid_action"] = False
-            return self.state, -1.0, False, info
+            return (x, y), -1.0, False, info
 
         # Boundary checks
         if 0 <= new_x < self.size and 0 <= new_y < self.size:
-            self.state = (new_x, new_y)
+            # Check for collisions with other agents (optional, skipping for simple Co-op for now)
+            # Actually, let's allow overlapping for now to avoid deadlocks in simple testing
+            self.agents[agent_id] = (new_x, new_y)
         else:
-            # Hit wall, stay in place, extra penalty
+            # Hit wall
             reward = -1.0
             info["valid_action"] = False
             
         # Check Goal
-        if self.state == self.goal:
+        if self.agents[agent_id] == self.goal:
             reward = 10.0
             done = True
             
-        return self.state, reward, done, info
+        return self.agents[agent_id], reward, done, info
 
     def render(self):
-        """Simple Text Render"""
+        """Render the grid with all agents."""
         print("-" * (self.size + 2))
         for y in range(self.size - 1, -1, -1):
             row = "|"
             for x in range(self.size):
-                if (x, y) == self.state:
-                    row += "A"
-                elif (x, y) == self.goal:
-                    row += "G"
-                else:
-                    row += "."
+                cell = "."
+                # Check for goal
+                if (x, y) == self.goal:
+                    cell = "G"
+                # Check for agents
+                agents_here = [aid for aid, pos in self.agents.items() if pos == (x, y)]
+                if agents_here:
+                    # Show first char of first agent ID if multiple
+                    cell = agents_here[0][0].upper()
+                    if len(agents_here) > 1:
+                        cell = "+" # Multiple agents
+                row += cell
             row += "|"
             print(row)
         print("-" * (self.size + 2))

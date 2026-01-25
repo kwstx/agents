@@ -50,7 +50,7 @@ class LearningGridAgent(GridAgent):
         """
         Overridden navigation using model + hooks.
         """
-        obs = self.env.reset()
+        obs = self.env.reset(agent_id=self.agent_id)
         self.state["current_position"] = obs
         self.state["total_reward"] = 0.0
         
@@ -71,7 +71,7 @@ class LearningGridAgent(GridAgent):
             action = actions[action_idx]
 
             # Execute action
-            next_obs, reward, done, info = self.env.step(action)
+            next_obs, reward, done, info = self.env.step(action, agent_id=self.agent_id)
             next_state_vector = self._get_state_vector(next_obs, self.env.goal)
 
             # Hook: on_step_end (allow modifying reward)

@@ -1,0 +1,131 @@
+RefinementTest - 
+>>> GENERATION 0: Threshold=60.0% <<<
+MessageBus - MessageBus started.
+Agent.Gen0-Bot-0 - Agent Gen0-Bot-0 starting...
+MessageBus - Registered agent 'Gen0-Bot-0'
+Agent.Gen0-Bot-0 - [task_added] {'task': 'start_logistics'}
+Agent.Gen0-Bot-1 - Agent Gen0-Bot-1 starting...
+MessageBus - Registered agent 'Gen0-Bot-1'
+Agent.Gen0-Bot-1 - [task_added] {'task': 'start_logistics'}
+Agent.Gen0-Bot-0 - [task_started] {'task': 'start_logistics'}
+Agent.Gen0-Bot-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Gen0-Bot-1 - [task_started] {'task': 'start_logistics'}
+Agent.Gen0-Bot-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Gen0-Bot-0 - Starting logistics loop
+Agent.Gen0-Bot-0 - New Goal: pickup at (0, 4)
+Agent.Gen0-Bot-1 - Starting logistics loop
+Agent.Gen0-Bot-1 - New Goal: pickup at (0, 2)
+Agent.Gen0-Bot-1 - New Goal: dropoff at (5, 1)
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 0)
+Agent.Gen0-Bot-1 - New Goal: pickup at (0, 2)
+Agent.Gen0-Bot-1 - New Goal: dropoff at (5, 1)
+Agent.Gen0-Bot-0 - New Goal: pickup at (0, 4)
+Agent.Gen0-Bot-1 - New Goal: pickup at (0, 4)
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 3)
+Agent.Gen0-Bot-1 - New Goal: dropoff at (5, 0)
+Agent.Gen0-Bot-0 - New Goal: pickup at (0, 0)
+Agent.Gen0-Bot-1 - New Goal: pickup at (0, 0)
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 4)
+Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
+Agent.Gen0-Bot-0 - Battery low (59.5%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 2)
+Agent.Gen0-Bot-1 - New Goal: charge at (1, 5)
+Agent.Gen0-Bot-1 - Battery low (59.5%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: charge at (1, 5)
+Agent.Gen0-Bot-0 - Battery low (59.0%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
+Agent.Gen0-Bot-0 - New Goal: charge at (4, 5)
+Agent.Gen0-Bot-0 - Battery low (58.5%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 1)
+Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
+Agent.Gen0-Bot-0 - Battery low (58.0%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 0)
+Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
+Agent.Gen0-Bot-0 - Battery low (57.5%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
+Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
+Agent.Gen0-Bot-0 - Battery low (57.0%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
+Agent.Gen0-Bot-0 - New Goal: charge at (4, 5)
+Agent.Gen0-Bot-0 - Battery low (56.5%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
+Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
+Agent.Gen0-Bot-0 - Battery low (56.0%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 2)
+Agent.Gen0-Bot-0 - New Goal: charge at (0, 5)
+Agent.Gen0-Bot-0 - Battery low (55.5%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 0)
+Agent.Gen0-Bot-0 - New Goal: charge at (1, 5)
+Agent.Gen0-Bot-0 - Battery low (55.0%), heading to charger
+Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
+RefinementTest - Gen 0 Result: SUCCESS (Deaths: 0, Fitness: 40.0)
+Agent.Gen0-Bot-0 - Agent Gen0-Bot-0 stopping...
+Agent.Gen0-Bot-1 - Agent Gen0-Bot-1 stopping...
+MessageBus - MessageBus stopped.
+RefinementTest - -> Safe! Pushing efficiency (lowering threshold).
+RefinementTest - 
+>>> GENERATION 1: Threshold=40.0% <<<
+MessageBus - MessageBus started.
+Agent.Gen1-Bot-0 - Agent Gen1-Bot-0 starting...
+MessageBus - Registered agent 'Gen1-Bot-0'
+Agent.Gen1-Bot-0 - [task_added] {'task': 'start_logistics'}
+Agent.Gen1-Bot-1 - Agent Gen1-Bot-1 starting...
+MessageBus - Registered agent 'Gen1-Bot-1'
+Agent.Gen1-Bot-1 - [task_added] {'task': 'start_logistics'}
+Agent.Gen1-Bot-0 - [task_started] {'task': 'start_logistics'}
+Agent.Gen1-Bot-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Gen1-Bot-1 - [task_started] {'task': 'start_logistics'}
+Agent.Gen1-Bot-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Gen1-Bot-0 - Starting logistics loop
+Agent.Gen1-Bot-0 - New Goal: pickup at (0, 4)
+Agent.Gen1-Bot-1 - Starting logistics loop
+Agent.Gen1-Bot-1 - New Goal: pickup at (0, 5)
+Agent.Gen1-Bot-1 - New Goal: dropoff at (5, 1)
+Agent.Gen1-Bot-0 - New Goal: dropoff at (5, 5)
+RefinementTest - Gen 1 Result: SUCCESS (Deaths: 0, Fitness: 60.0)
+Agent.Gen1-Bot-0 - Agent Gen1-Bot-0 stopping...
+Agent.Gen1-Bot-1 - Agent Gen1-Bot-1 stopping...
+MessageBus - MessageBus stopped.
+RefinementTest - -> Safe! Pushing efficiency (lowering threshold).
+RefinementTest - 
+>>> GENERATION 2: Threshold=20.0% <<<
+MessageBus - MessageBus started.
+Agent.Gen2-Bot-0 - Agent Gen2-Bot-0 starting...
+MessageBus - Registered agent 'Gen2-Bot-0'
+Agent.Gen2-Bot-0 - [task_added] {'task': 'start_logistics'}
+Agent.Gen2-Bot-1 - Agent Gen2-Bot-1 starting...
+MessageBus - Registered agent 'Gen2-Bot-1'
+Agent.Gen2-Bot-1 - [task_added] {'task': 'start_logistics'}
+Agent.Gen2-Bot-0 - [task_started] {'task': 'start_logistics'}
+Agent.Gen2-Bot-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Gen2-Bot-1 - [task_started] {'task': 'start_logistics'}
+Agent.Gen2-Bot-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Gen2-Bot-0 - Starting logistics loop
+Agent.Gen2-Bot-0 - New Goal: pickup at (0, 1)
+Agent.Gen2-Bot-1 - Starting logistics loop
+Agent.Gen2-Bot-1 - New Goal: pickup at (0, 4)
+Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 0)
+Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 1)
+Agent.Gen2-Bot-0 - New Goal: pickup at (0, 5)
+Agent.Gen2-Bot-1 - New Goal: pickup at (0, 2)
+Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 2)
+Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 4)
+Agent.Gen2-Bot-1 - New Goal: pickup at (0, 3)
+Agent.Gen2-Bot-0 - New Goal: pickup at (0, 4)
+Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 5)
+Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 3)
+Agent.Gen2-Bot-1 - New Goal: pickup at (0, 5)
+Agent.Gen2-Bot-0 - New Goal: pickup at (0, 4)
+Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 4)
+Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 0)
+Agent.Gen2-Bot-1 - New Goal: pickup at (0, 5)
+RefinementTest - Gen 2 Result: SUCCESS (Deaths: 0, Fitness: 80.0)
+Agent.Gen2-Bot-0 - Agent Gen2-Bot-0 stopping...
+Agent.Gen2-Bot-1 - Agent Gen2-Bot-1 stopping...
+MessageBus - MessageBus stopped.
+RefinementTest - -> Safe! Pushing efficiency (lowering threshold).
+RefinementTest - 
+>>> OPTIMIZATION SUMMARY <<<
+RefinementTest - Threshold: 60.0%, Deaths: 0, Fitness: 40.0
+RefinementTest - Threshold: 40.0%, Deaths: 0, Fitness: 60.0
+RefinementTest - Threshold: 20.0%, Deaths: 0, Fitness: 80.0

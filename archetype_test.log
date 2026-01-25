@@ -1,0 +1,273 @@
+ArchetypeTest - 
+>>> SCENARIO: Aggressive <<<
+ArchetypeTest - Agent Config: {'charge_threshold': 5.0}
+MessageBus - MessageBus started.
+Agent.Aggressive-0 - Agent Aggressive-0 starting...
+MessageBus - Registered agent 'Aggressive-0'
+Agent.Aggressive-0 - [task_added] {'task': 'start_logistics'}
+Agent.Aggressive-1 - Agent Aggressive-1 starting...
+MessageBus - Registered agent 'Aggressive-1'
+Agent.Aggressive-1 - [task_added] {'task': 'start_logistics'}
+Agent.Aggressive-2 - Agent Aggressive-2 starting...
+MessageBus - Registered agent 'Aggressive-2'
+Agent.Aggressive-2 - [task_added] {'task': 'start_logistics'}
+Agent.Aggressive-3 - Agent Aggressive-3 starting...
+MessageBus - Registered agent 'Aggressive-3'
+Agent.Aggressive-3 - [task_added] {'task': 'start_logistics'}
+Agent.Aggressive-4 - Agent Aggressive-4 starting...
+MessageBus - Registered agent 'Aggressive-4'
+Agent.Aggressive-4 - [task_added] {'task': 'start_logistics'}
+Agent.Aggressive-0 - [task_started] {'task': 'start_logistics'}
+Agent.Aggressive-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Aggressive-1 - [task_started] {'task': 'start_logistics'}
+Agent.Aggressive-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Aggressive-2 - [task_started] {'task': 'start_logistics'}
+Agent.Aggressive-2 - [task_completed] {'task': 'start_logistics'}
+Agent.Aggressive-3 - [task_started] {'task': 'start_logistics'}
+Agent.Aggressive-3 - [task_completed] {'task': 'start_logistics'}
+Agent.Aggressive-4 - [task_started] {'task': 'start_logistics'}
+Agent.Aggressive-4 - [task_completed] {'task': 'start_logistics'}
+Agent.Aggressive-0 - Starting logistics loop
+Agent.Aggressive-0 - New Goal: pickup at (0, 5)
+Agent.Aggressive-1 - Starting logistics loop
+Agent.Aggressive-1 - New Goal: pickup at (0, 1)
+Agent.Aggressive-2 - Starting logistics loop
+Agent.Aggressive-2 - New Goal: pickup at (0, 5)
+Agent.Aggressive-3 - Starting logistics loop
+Agent.Aggressive-3 - New Goal: pickup at (0, 2)
+Agent.Aggressive-4 - Starting logistics loop
+Agent.Aggressive-4 - New Goal: pickup at (0, 2)
+ArchetypeTest - [Aggressive] Result: Deaths=0, MinBattery=31.0
+Agent.Aggressive-0 - Agent Aggressive-0 stopping...
+Agent.Aggressive-1 - Agent Aggressive-1 stopping...
+Agent.Aggressive-2 - Agent Aggressive-2 stopping...
+Agent.Aggressive-3 - Agent Aggressive-3 stopping...
+Agent.Aggressive-4 - Agent Aggressive-4 stopping...
+MessageBus - MessageBus stopped.
+ArchetypeTest - 
+>>> SCENARIO: Conservative <<<
+ArchetypeTest - Agent Config: {'charge_threshold': 50.0}
+MessageBus - MessageBus started.
+Agent.Conservative-0 - Agent Conservative-0 starting...
+MessageBus - Registered agent 'Conservative-0'
+Agent.Conservative-0 - [task_added] {'task': 'start_logistics'}
+Agent.Conservative-1 - Agent Conservative-1 starting...
+MessageBus - Registered agent 'Conservative-1'
+Agent.Conservative-1 - [task_added] {'task': 'start_logistics'}
+Agent.Conservative-2 - Agent Conservative-2 starting...
+MessageBus - Registered agent 'Conservative-2'
+Agent.Conservative-2 - [task_added] {'task': 'start_logistics'}
+Agent.Conservative-3 - Agent Conservative-3 starting...
+MessageBus - Registered agent 'Conservative-3'
+Agent.Conservative-3 - [task_added] {'task': 'start_logistics'}
+Agent.Conservative-4 - Agent Conservative-4 starting...
+MessageBus - Registered agent 'Conservative-4'
+Agent.Conservative-4 - [task_added] {'task': 'start_logistics'}
+Agent.Conservative-0 - [task_started] {'task': 'start_logistics'}
+Agent.Conservative-0 - [task_completed] {'task': 'start_logistics'}
+Agent.Conservative-1 - [task_started] {'task': 'start_logistics'}
+Agent.Conservative-1 - [task_completed] {'task': 'start_logistics'}
+Agent.Conservative-2 - [task_started] {'task': 'start_logistics'}
+Agent.Conservative-2 - [task_completed] {'task': 'start_logistics'}
+Agent.Conservative-3 - [task_started] {'task': 'start_logistics'}
+Agent.Conservative-3 - [task_completed] {'task': 'start_logistics'}
+Agent.Conservative-4 - [task_started] {'task': 'start_logistics'}
+Agent.Conservative-4 - [task_completed] {'task': 'start_logistics'}
+Agent.Conservative-0 - Starting logistics loop
+Agent.Conservative-0 - New Goal: pickup at (0, 6)
+Agent.Conservative-1 - Starting logistics loop
+Agent.Conservative-1 - New Goal: pickup at (0, 2)
+Agent.Conservative-2 - Starting logistics loop
+Agent.Conservative-2 - New Goal: pickup at (0, 4)
+Agent.Conservative-3 - Starting logistics loop
+Agent.Conservative-3 - New Goal: pickup at (0, 5)
+Agent.Conservative-4 - Starting logistics loop
+Agent.Conservative-4 - New Goal: pickup at (0, 6)
+Agent.Conservative-0 - New Goal: dropoff at (7, 0)
+Agent.Conservative-2 - New Goal: dropoff at (7, 4)
+Agent.Conservative-0 - New Goal: pickup at (0, 6)
+Agent.Conservative-0 - New Goal: charge at (7, 7)
+Agent.Conservative-0 - Battery low (49.5%), heading to charger
+Agent.Conservative-1 - New Goal: charge at (4, 7)
+Agent.Conservative-1 - Battery low (49.5%), heading to charger
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (49.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 5)
+Agent.Conservative-3 - New Goal: charge at (7, 7)
+Agent.Conservative-3 - Battery low (49.5%), heading to charger
+Agent.Conservative-4 - New Goal: charge at (0, 7)
+Agent.Conservative-4 - Battery low (49.5%), heading to charger
+Agent.Conservative-2 - New Goal: charge at (6, 7)
+Agent.Conservative-2 - Battery low (49.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 7)
+Agent.Conservative-2 - New Goal: charge at (6, 7)
+Agent.Conservative-2 - Battery low (48.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 4)
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (48.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 6)
+Agent.Conservative-2 - New Goal: charge at (1, 7)
+Agent.Conservative-2 - Battery low (47.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 1)
+Agent.Conservative-2 - New Goal: charge at (4, 7)
+Agent.Conservative-2 - Battery low (47.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 2)
+Agent.Conservative-1 - New Goal: pickup at (0, 6)
+Agent.Conservative-2 - New Goal: charge at (0, 7)
+Agent.Conservative-2 - Battery low (46.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 2)
+Agent.Conservative-2 - New Goal: charge at (4, 7)
+Agent.Conservative-2 - Battery low (46.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 5)
+Agent.Conservative-2 - New Goal: charge at (0, 7)
+Agent.Conservative-2 - Battery low (45.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 3)
+Agent.Conservative-2 - New Goal: charge at (5, 7)
+Agent.Conservative-2 - Battery low (45.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 7)
+Agent.Conservative-2 - New Goal: charge at (7, 7)
+Agent.Conservative-2 - Battery low (44.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 0)
+Agent.Conservative-2 - New Goal: charge at (5, 7)
+Agent.Conservative-2 - Battery low (44.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 5)
+Agent.Conservative-1 - New Goal: dropoff at (7, 7)
+Agent.Conservative-2 - New Goal: charge at (2, 7)
+Agent.Conservative-2 - Battery low (43.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 6)
+Agent.Conservative-3 - New Goal: pickup at (0, 0)
+Agent.Conservative-2 - New Goal: charge at (4, 7)
+Agent.Conservative-2 - Battery low (43.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 6)
+Agent.Conservative-2 - New Goal: charge at (6, 7)
+Agent.Conservative-2 - Battery low (42.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 2)
+Agent.Conservative-0 - New Goal: pickup at (0, 7)
+Agent.Conservative-2 - New Goal: charge at (7, 7)
+Agent.Conservative-2 - Battery low (42.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 0)
+Agent.Conservative-2 - New Goal: charge at (2, 7)
+Agent.Conservative-2 - Battery low (41.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 1)
+Agent.Conservative-2 - New Goal: charge at (0, 7)
+Agent.Conservative-2 - Battery low (41.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 5)
+Agent.Conservative-2 - New Goal: charge at (6, 7)
+Agent.Conservative-2 - Battery low (40.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 3)
+Agent.Conservative-2 - New Goal: charge at (0, 7)
+Agent.Conservative-2 - Battery low (40.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 1)
+Agent.Conservative-0 - New Goal: charge at (1, 7)
+Agent.Conservative-0 - Battery low (49.5%), heading to charger
+Agent.Conservative-1 - New Goal: charge at (5, 7)
+Agent.Conservative-1 - Battery low (49.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 5)
+Agent.Conservative-2 - New Goal: charge at (2, 7)
+Agent.Conservative-2 - Battery low (39.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 1)
+Agent.Conservative-3 - New Goal: charge at (2, 7)
+Agent.Conservative-3 - Battery low (49.5%), heading to charger
+Agent.Conservative-1 - New Goal: charge at (0, 7)
+Agent.Conservative-1 - Battery low (49.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 2)
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (39.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 3)
+Agent.Conservative-0 - New Goal: pickup at (0, 1)
+Agent.Conservative-1 - New Goal: charge at (4, 7)
+Agent.Conservative-1 - Battery low (48.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 6)
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (38.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 6)
+Agent.Conservative-1 - New Goal: charge at (2, 7)
+Agent.Conservative-1 - Battery low (48.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 1)
+Agent.Conservative-2 - New Goal: charge at (4, 7)
+Agent.Conservative-2 - Battery low (38.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 1)
+Agent.Conservative-1 - New Goal: charge at (2, 7)
+Agent.Conservative-1 - Battery low (47.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 0)
+Agent.Conservative-2 - New Goal: charge at (2, 7)
+Agent.Conservative-2 - Battery low (37.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 0)
+Agent.Conservative-3 - New Goal: pickup at (0, 6)
+Agent.Conservative-1 - New Goal: charge at (5, 7)
+Agent.Conservative-1 - Battery low (47.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 1)
+Agent.Conservative-2 - New Goal: charge at (7, 7)
+Agent.Conservative-2 - Battery low (37.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 4)
+Agent.Conservative-1 - New Goal: charge at (4, 7)
+Agent.Conservative-1 - Battery low (46.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 1)
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (36.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 0)
+Agent.Conservative-1 - New Goal: charge at (4, 7)
+Agent.Conservative-1 - Battery low (46.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 0)
+Agent.Conservative-2 - New Goal: charge at (7, 7)
+Agent.Conservative-2 - Battery low (36.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 0)
+Agent.Conservative-1 - New Goal: charge at (5, 7)
+Agent.Conservative-1 - Battery low (45.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 2)
+Agent.Conservative-2 - New Goal: charge at (1, 7)
+Agent.Conservative-2 - Battery low (35.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 1)
+Agent.Conservative-3 - New Goal: dropoff at (7, 6)
+Agent.Conservative-1 - New Goal: charge at (0, 7)
+Agent.Conservative-1 - Battery low (45.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 7)
+Agent.Conservative-2 - New Goal: charge at (1, 7)
+Agent.Conservative-2 - Battery low (35.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 2)
+Agent.Conservative-1 - New Goal: charge at (5, 7)
+Agent.Conservative-1 - Battery low (44.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 5)
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (34.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 7)
+Agent.Conservative-1 - New Goal: charge at (4, 7)
+Agent.Conservative-1 - Battery low (44.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 3)
+Agent.Conservative-2 - New Goal: charge at (4, 7)
+Agent.Conservative-2 - Battery low (34.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 6)
+Agent.Conservative-1 - New Goal: charge at (7, 7)
+Agent.Conservative-1 - Battery low (43.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 6)
+Agent.Conservative-2 - New Goal: charge at (5, 7)
+Agent.Conservative-2 - Battery low (33.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 6)
+Agent.Conservative-1 - New Goal: charge at (6, 7)
+Agent.Conservative-1 - Battery low (43.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 0)
+Agent.Conservative-2 - New Goal: charge at (1, 7)
+Agent.Conservative-2 - Battery low (33.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 3)
+Agent.Conservative-1 - New Goal: charge at (0, 7)
+Agent.Conservative-1 - Battery low (42.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 7)
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (32.5%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 3)
+Agent.Conservative-1 - New Goal: charge at (5, 7)
+Agent.Conservative-1 - Battery low (42.0%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 1)
+Agent.Conservative-2 - New Goal: charge at (3, 7)
+Agent.Conservative-2 - Battery low (32.0%), heading to charger
+Agent.Conservative-2 - New Goal: dropoff at (7, 2)
+Agent.Conservative-1 - New Goal: charge at (2, 7)
+Agent.Conservative-1 - Battery low (41.5%), heading to charger
+Agent.Conservative-1 - New Goal: dropoff at (7, 3)
+ArchetypeTest - [Conservative] Result: Deaths=0, MinBattery=31.5
+Agent.Conservative-0 - Agent Conservative-0 stopping...
+Agent.Conservative-1 - Agent Conservative-1 stopping...
+Agent.Conservative-2 - Agent Conservative-2 stopping...
+Agent.Conservative-3 - Agent Conservative-3 stopping...
+Agent.Conservative-4 - Agent Conservative-4 stopping...
+MessageBus - MessageBus stopped.

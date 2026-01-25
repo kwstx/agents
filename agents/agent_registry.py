@@ -10,6 +10,50 @@ logger = logging.getLogger(__name__)
 
 class AgentRegistry:
     @staticmethod
+    def _check_dependencies(module_name: str):
+        """
+        Checks if the plugin's manifest.yaml declares satisfied dependencies.
+        """
+        import os
+        import yaml
+        from importlib.metadata import version, PackageNotFoundError
+        from packaging.specifiers import SpecifierSet
+        from packaging.version import parse as parse_version
+
+        spec = importlib.util.find_spec(module_name)
+        if not spec or not spec.origin:
+            return
+
+        # Look for manifest.yaml in the same directory
+        plugin_dir = os.path.dirname(spec.origin)
+        manifest_path = os.path.join(plugin_dir, "manifest.yaml")
+
+        if os.path.exists(manifest_path):
+            try:
+                with open(manifest_path, 'r') as f:
+                    manifest = yaml.safe_load(f)
+                
+                dependencies = manifest.get("dependencies", {})
+                for pkg_name, version_spec in dependencies.items():
+                    try:
+                        installed_ver_str = version(pkg_name)
+                        installed_ver = parse_version(installed_ver_str)
+                        specifiers = SpecifierSet(version_spec)
+                        
+                        if installed_ver not in specifiers:
+                            raise ImportError(
+                                f"Dependency Conflict: {module_name} requires {pkg_name}{version_spec}, "
+                                f"but installed version is {installed_ver_str}"
+                            )
+                    except PackageNotFoundError:
+                        raise ImportError(f"Missing Dependency: {module_name} requires {pkg_name}, which is not installed.")
+                        
+            except ImportError:
+                raise
+            except Exception as e:
+                logger.warning(f"Failed to validate manifest for {module_name}: {e}")
+
+    @staticmethod
     def load_agent(module_name: str, class_name: str) -> Type[BaseAgent]:
         """
         Dynamically loads an agent class from a given module.
@@ -22,6 +66,9 @@ class AgentRegistry:
             Type[BaseAgent]: The loaded agent class.
         """
         try:
+            # DEPENDENCY VALIDATION
+            AgentRegistry._check_dependencies(module_name)
+
             # SECURITY CHECK: Inspect source before importing
             spec = importlib.util.find_spec(module_name)
             if spec and spec.origin:

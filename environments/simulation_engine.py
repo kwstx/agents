@@ -53,6 +53,8 @@ class SimulationEngine:
     async def get_state(self, agent_id: str) -> Any:
         """Returns the current perception of the state for the agent."""
         await self._apply_stress()
+        if hasattr(self.env, "get_agent_state"):
+            return self.env.get_agent_state(agent_id)
         return self._current_observation
 
     async def perform_action(self, agent_id: str, action: Any) -> bool:
@@ -67,7 +69,12 @@ class SimulationEngine:
 
         # Execute step
         start = time.time()
-        obs, reward, done, info = self.env.step(action)
+        # Execute step
+        start = time.time()
+        try:
+             obs, reward, done, info = self.env.step(action, agent_id=agent_id)
+        except TypeError:
+             obs, reward, done, info = self.env.step(action)
         duration = time.time() - start
         info["duration"] = duration
         

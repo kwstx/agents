@@ -1,0 +1,145 @@
+ProblemValidator - INFO - >>> TEST: CHARGING DEATH SPIRAL <<<
+MessageBus - INFO - MessageBus started.
+Agent.StarvingBot-0 - INFO - Agent StarvingBot-0 starting...
+MessageBus - INFO - Registered agent 'StarvingBot-0'
+Agent.StarvingBot-0 - INFO - [task_added] {'task': 'start_logistics'}
+Agent.StarvingBot-1 - INFO - Agent StarvingBot-1 starting...
+MessageBus - INFO - Registered agent 'StarvingBot-1'
+Agent.StarvingBot-1 - INFO - [task_added] {'task': 'start_logistics'}
+Agent.StarvingBot-2 - INFO - Agent StarvingBot-2 starting...
+MessageBus - INFO - Registered agent 'StarvingBot-2'
+Agent.StarvingBot-2 - INFO - [task_added] {'task': 'start_logistics'}
+Agent.StarvingBot-3 - INFO - Agent StarvingBot-3 starting...
+MessageBus - INFO - Registered agent 'StarvingBot-3'
+Agent.StarvingBot-3 - INFO - [task_added] {'task': 'start_logistics'}
+Agent.StarvingBot-4 - INFO - Agent StarvingBot-4 starting...
+MessageBus - INFO - Registered agent 'StarvingBot-4'
+Agent.StarvingBot-4 - INFO - [task_added] {'task': 'start_logistics'}
+ProblemValidator - INFO - Simulating contention...
+Agent.StarvingBot-0 - INFO - [task_started] {'task': 'start_logistics'}
+Agent.StarvingBot-0 - INFO - [task_completed] {'task': 'start_logistics'}
+Agent.StarvingBot-1 - INFO - [task_started] {'task': 'start_logistics'}
+Agent.StarvingBot-1 - INFO - [task_completed] {'task': 'start_logistics'}
+Agent.StarvingBot-2 - INFO - [task_started] {'task': 'start_logistics'}
+Agent.StarvingBot-2 - INFO - [task_completed] {'task': 'start_logistics'}
+Agent.StarvingBot-3 - INFO - [task_started] {'task': 'start_logistics'}
+Agent.StarvingBot-3 - INFO - [task_completed] {'task': 'start_logistics'}
+Agent.StarvingBot-4 - INFO - [task_started] {'task': 'start_logistics'}
+Agent.StarvingBot-4 - INFO - [task_completed] {'task': 'start_logistics'}
+Agent.StarvingBot-0 - INFO - Starting logistics loop
+Agent.StarvingBot-0 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-0 - WARNING - Battery low (15.0%), heading to charger
+Agent.StarvingBot-1 - INFO - Starting logistics loop
+Agent.StarvingBot-1 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (15.0%), heading to charger
+Agent.StarvingBot-2 - INFO - Starting logistics loop
+Agent.StarvingBot-2 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-2 - WARNING - Battery low (15.0%), heading to charger
+Agent.StarvingBot-3 - INFO - Starting logistics loop
+Agent.StarvingBot-3 - INFO - New Goal: charge at (4, 4)
+Agent.StarvingBot-3 - WARNING - Battery low (15.0%), heading to charger
+Agent.StarvingBot-4 - INFO - Starting logistics loop
+Agent.StarvingBot-4 - INFO - New Goal: charge at (2, 4)
+Agent.StarvingBot-4 - WARNING - Battery low (15.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: pickup at (0, 1)
+Agent.StarvingBot-2 - INFO - New Goal: pickup at (0, 1)
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 3)
+Agent.StarvingBot-0 - INFO - New Goal: pickup at (0, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (0, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (19.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-2 - INFO - New Goal: charge at (3, 4)
+Agent.StarvingBot-2 - WARNING - Battery low (19.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: charge at (0, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (19.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 3)
+Agent.StarvingBot-0 - INFO - New Goal: dropoff at (4, 1)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (18.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 1)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (18.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (4, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (17.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (4, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (17.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (3, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (16.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 0)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (2, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (16.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 0)
+Agent.StarvingBot-2 - INFO - New Goal: pickup at (0, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (15.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (0, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (15.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (14.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 3)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (14.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 3)
+Agent.StarvingBot-2 - INFO - New Goal: dropoff at (4, 3)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (3, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (13.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 2)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (3, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (13.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (3, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (12.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (1, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (12.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 3)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (4, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (11.5%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 0)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (4, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (11.0%), heading to charger
+Agent.StarvingBot-1 - INFO - New Goal: dropoff at (4, 1)
+Agent.StarvingBot-2 - INFO - New Goal: pickup at (0, 4)
+Agent.StarvingBot-1 - INFO - New Goal: charge at (3, 4)
+Agent.StarvingBot-1 - WARNING - Battery low (10.5%), heading to charger
+Agent.StarvingBot-3 - INFO - Agent finished (e.g. died or done)
+Agent.StarvingBot-4 - INFO - Agent finished (e.g. died or done)
+Agent.StarvingBot-0 - INFO - Agent finished (e.g. died or done)
+Agent.StarvingBot-1 - INFO - Agent finished (e.g. died or done)
+Agent.StarvingBot-2 - INFO - Agent finished (e.g. died or done)
+ProblemValidator - INFO - Result: 1/5 Agents Died.
+ProblemValidator - WARNING - [FAILURE] Agents survived? Too efficient?
+Agent.StarvingBot-0 - INFO - Agent StarvingBot-0 stopping...
+Agent.StarvingBot-1 - INFO - Agent StarvingBot-1 stopping...
+Agent.StarvingBot-2 - INFO - Agent StarvingBot-2 stopping...
+Agent.StarvingBot-3 - INFO - Agent StarvingBot-3 stopping...
+Agent.StarvingBot-4 - INFO - Agent StarvingBot-4 stopping...
+MessageBus - INFO - MessageBus stopped.
+ProblemValidator - INFO - 
+>>> TEST: HALLWAY DEADLOCK <<<
+MessageBus - INFO - MessageBus started.
+Agent.LeftBot - INFO - Agent LeftBot starting...
+MessageBus - INFO - Registered agent 'LeftBot'
+Agent.RightBot - INFO - Agent RightBot starting...
+MessageBus - INFO - Registered agent 'RightBot'
+Agent.LeftBot - INFO - [task_added] {'task': 'start_logistics'}
+Agent.RightBot - INFO - [task_added] {'task': 'start_logistics'}
+ProblemValidator - INFO - Simulating head-on collision course...
+Agent.LeftBot - INFO - [task_started] {'task': 'start_logistics'}
+Agent.LeftBot - INFO - [task_completed] {'task': 'start_logistics'}
+Agent.RightBot - INFO - [task_started] {'task': 'start_logistics'}
+Agent.RightBot - INFO - [task_completed] {'task': 'start_logistics'}
+Agent.LeftBot - INFO - Starting logistics loop
+Agent.LeftBot - INFO - New Goal: dropoff at (4, 1)
+Agent.RightBot - INFO - Starting logistics loop
+Agent.RightBot - INFO - New Goal: pickup at (0, 0)
+ProblemValidator - INFO - Final Positions: LeftBot(2, 0), RightBot(3, 0)
+ProblemValidator - INFO - [SUCCESS] Hypothesis Verified: Agents are stuck/adjacent.
+Agent.LeftBot - INFO - Agent LeftBot stopping...
+Agent.RightBot - INFO - Agent RightBot stopping...
+MessageBus - INFO - MessageBus stopped.

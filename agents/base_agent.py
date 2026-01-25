@@ -98,6 +98,8 @@ class BaseAgent(ABC):
             
         # By default, specific agents should override or register specific handlers
         # This is a generic catch-all hooks
+        # DEBUG PRINT
+        # print(f"DEBUG: Agent {self.agent_id} received {message.topic} from {message.sender}")
         self.log_activity("message_received", {"topic": message.topic, "sender": message.sender})
 
     async def send_message(self, topic: str, payload: Any, message_type: str = "event", receiver: str = None, trace_id: str = None, parent_id: str = None):
