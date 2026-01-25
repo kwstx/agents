@@ -116,5 +116,34 @@ class TestDashboardIntegrity(unittest.TestCase):
         self.assertEqual(data["step"], 100)
         print("PASS: Checkpoint integrity verified.")
 
+    def test_message_trace_reconstruction(self):
+        """
+        Verify that multi-step conversations can be reconstructed via Trace IDs.
+        """
+        trace_id = "trace_12345"
+        conversation = [
+            {"timestamp": "12:00:01", "sender": "Agent A", "receiver": "Agent B", "trace_id": trace_id, "topic": "task_assign", "message_type": "request", "payload": {"task": "calc_pi"}},
+            {"timestamp": "12:00:02", "sender": "Agent B", "receiver": "Agent A", "trace_id": trace_id, "topic": "task_ack", "message_type": "response", "payload": {"status": "accepted"}},
+            {"timestamp": "12:00:05", "sender": "Agent B", "receiver": "Agent A", "trace_id": trace_id, "topic": "task_result", "message_type": "inform", "payload": {"result": 3.14}}
+        ]
+        
+        # 1. Write Log
+        from dashboards.data_loader import MESSAGE_LOG, load_messages
+        with open(MESSAGE_LOG, "w") as f:
+            for msg in conversation:
+                f.write(json.dumps(msg) + "\n")
+                
+        # 2. Load & Filter
+        messages = load_messages()
+        
+        # 3. Verify Trace Fidelity
+        target_trace = [m for m in messages if m.get("trace_id") == trace_id]
+        self.assertEqual(len(target_trace), 3)
+        self.assertEqual(target_trace[0]["sender"], "Agent A")
+        self.assertEqual(target_trace[2]["sender"], "Agent B")
+        self.assertEqual(target_trace[2]["payload"]["result"], 3.14)
+        
+        print("PASS: Communication trace fidelity verified.")
+
 if __name__ == "__main__":
     unittest.main()

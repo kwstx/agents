@@ -1,30 +1,50 @@
 import torch
 import numpy as np
 import random
+import asyncio
+from typing import List, Any
 from agents.grid_agent import GridAgent
-from models.decision_model import GridDecisionModel
+from models.decision_model import GridDecisionModel, ModelConfig
 from models.trainer import DQNTrainer
 from utils.message_bus import MessageBus
 from environments.grid_world import GridWorld
 
 class LearningGridAgent(GridAgent):
-    def __init__(self, agent_id: str, message_bus: MessageBus, env: GridWorld, model: GridDecisionModel, hooks: list = None):
+    def __init__(self, agent_id: str, message_bus: MessageBus, env: GridWorld, model: GridDecisionModel = None, hooks: list = None):
         super().__init__(agent_id, message_bus, env)
+        
+        # Initialize Model and Trainer
+        if model is None:
+            model = GridDecisionModel(ModelConfig(input_size=4, output_size=4))
+            
         self.model = model
+        self.trainer = DQNTrainer(self.model)
         self.hooks = hooks or []
+        
+        # Hyperparameters
         self.epsilon = 1.0  # Exploration rate
         self.epsilon_min = 0.1
         self.epsilon_decay = 0.995
-        
+        self.training_enabled = True
+
     def _get_state_vector(self, position, goal):
         """Normalizes state to [0,1] range for the model."""
-        size = float(self.env.size)
+        size = float(self.env.size) if self.env.size > 0 else 1.0
         return [
             position[0] / size, 
             position[1] / size, 
             goal[0] / size, 
             goal[1] / size
         ]
+
+    async def process_task(self, task: Any):
+        """
+        Handles tasks. Overridden to intercept specific commands if needed, 
+        otherwise defaults to parent behavior.
+        """
+        if task == "navigate_with_learning":
+            return await self._navigate_to_goal()
+        return await super().process_task(task)
 
     async def _navigate_to_goal(self):
         """
@@ -45,43 +65,59 @@ class LearningGridAgent(GridAgent):
             current_x, current_y = self.state["current_position"]
             state_vector = self._get_state_vector((current_x, current_y), self.env.goal)
             
+            # Select Action
             action_idx = self.select_action(state_vector)
-            
             actions = ["UP", "DOWN", "LEFT", "RIGHT"]
             action = actions[action_idx]
 
+            # Execute action
+            next_obs, reward, done, info = self.env.step(action)
+            next_state_vector = self._get_state_vector(next_obs, self.env.goal)
+
+            # Hook: on_step_end (allow modifying reward)
+            for hook in self.hooks:
+                if hasattr(hook, 'on_step_end'):
+                    result = hook.on_step_end(self, state_vector, action_idx, reward, next_state_vector, done)
+                    if result is not None:
+                        reward = result
+            
+            # Learn
+            if self.training_enabled:
+                self.trainer.store_experience(state_vector, action_idx, reward, next_state_vector, done)
+                loss = self.trainer.train_step()
+                if steps % 10 == 0:
+                    self.logger.info(f"Training Loss: {loss:.4f}, Epsilon: {self.epsilon:.4f}")
+
+            # Update state
+            self.state["current_position"] = next_obs
+            self.state["total_reward"] += reward
+            
+            # Logging
+            step_summary = f"Step {steps}: Action={action} ({action_idx}), Pos={next_obs}, Reward={reward:.2f}, Epsilon={self.epsilon:.2f}"
+            self.logger.info(step_summary)
+            transcript.append(step_summary)
+            
+            steps += 1
+            
+            # Allow async context switching
+            await asyncio.sleep(0)
+            
+        # End of Episode
+        if self.training_enabled:
+            if self.epsilon > self.epsilon_min:
+                self.epsilon *= self.epsilon_decay
+            # Checkpoint occasionally
+            if random.random() < 0.1: # 10% chance to save per episode to avoid IO spam
+                self.trainer.save_model(f"models/{self.agent_id}_mlp.pth")
+
+        return transcript
+
     def select_action(self, state_vector):
         """Selects an action based on epsilon-greedy policy."""
-        if random.random() < self.epsilon:
+        if self.training_enabled and random.random() < self.epsilon:
             return random.randint(0, 3)
         else:
             state_tensor = torch.FloatTensor([state_vector])
             with torch.no_grad():
                 q_values = self.model(state_tensor)
                 return torch.argmax(q_values).item()
-            
-            # Execute action
-            next_obs, reward, done, info = self.env.step(action)
-            
-            # Hook: on_step_end
-            next_state_vector = self._get_state_vector(next_obs, self.env.goal)
-            for hook in self.hooks:
-                result = hook.on_step_end(self, state_vector, action_idx, reward, next_state_vector, done)
-                if result is not None:
-                    reward = result
-            
-            # Update state
-            self.state["current_position"] = next_obs
-            self.state["total_reward"] += reward
-            
-            # Logging
-            step_summary = f"Step {steps}: Action={action} ({action_idx}), Pos={next_obs}, Reward={reward}, Epsilon={self.epsilon:.2f}"
-            transcript.append(step_summary)
-            
-            steps += 1
-            
-        # Decay epsilon
-        if self.epsilon > self.epsilon_min:
-            self.epsilon *= self.epsilon_decay
-            
-        return transcript
