@@ -23,6 +23,15 @@ class LearningGridAgent(GridAgent):
         
         # Hyperparameters
         self.epsilon = 1.0  # Exploration rate
+        
+        # Persistence: Try Load
+        model_path = f"models/{self.agent_id}_mlp.pth"
+        if self.trainer.load_model(model_path):
+            self.epsilon = 0.1 # Lower exploration if pre-trained
+            self.logger.info(f"Loaded existing model from {model_path}")
+        else:
+            self.logger.info(f"Initialized new model. No checkpoint at {model_path}")
+
         self.epsilon_min = 0.1
         self.epsilon_decay = 0.995
         self.training_enabled = True
@@ -82,11 +91,7 @@ class LearningGridAgent(GridAgent):
                         reward = result
             
             # Learn
-            if self.training_enabled:
-                self.trainer.store_experience(state_vector, action_idx, reward, next_state_vector, done)
-                loss = self.trainer.train_step()
-                if steps % 10 == 0:
-                    self.logger.info(f"Training Loss: {loss:.4f}, Epsilon: {self.epsilon:.4f}")
+            self.learn_from_step(state_vector, action_idx, reward, next_state_vector, done)
 
             # Update state
             self.state["current_position"] = next_obs
@@ -103,14 +108,26 @@ class LearningGridAgent(GridAgent):
             await asyncio.sleep(0)
             
         # End of Episode
+        self.on_episode_end()
+
+        return transcript
+
+    def learn_from_step(self, state_vector, action_idx, reward, next_state_vector, done):
+        """External facing learning step."""
+        if self.training_enabled:
+            self.trainer.store_experience(state_vector, action_idx, reward, next_state_vector, done)
+            loss = self.trainer.train_step()
+            # We could log loss here if we had step count context, but logger works.
+            # self.logger.info(f"Loss: {loss}")
+
+    def on_episode_end(self):
+        """External facing episode completion handler."""
         if self.training_enabled:
             if self.epsilon > self.epsilon_min:
                 self.epsilon *= self.epsilon_decay
             # Checkpoint occasionally
             if random.random() < 0.1: # 10% chance to save per episode to avoid IO spam
                 self.trainer.save_model(f"models/{self.agent_id}_mlp.pth")
-
-        return transcript
 
     def select_action(self, state_vector):
         """Selects an action based on epsilon-greedy policy."""

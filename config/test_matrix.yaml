@@ -39,3 +39,32 @@ scenarios:
     stress_config:
       drop_rate: 0.2
       latency_ms: 200
+
+  learning_marathon:
+    description: "Extended run to measure learning performance"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 5
+    duration_s: 300
+    stress_config: {}
+
+  benchmark_quick:
+    description: "Ultra fast run for iteration speed testing"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 5
+  test_5x5:
+    description: "Reference environment (Training domain)"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 5
+    duration_s: 30
+    stress_config: {}
+
+  test_10x10:
+    description: "Generalization environment (New domain)"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 10
+    duration_s: 30
+    stress_config: {}

@@ -182,6 +182,11 @@ async def run_simulation_loop():
                         # Collaborative Callback
                         if hasattr(agent, "on_step_complete"):
                             await agent.on_step_complete(obs)
+                            
+                        # LEARNING STEP
+                        if isinstance(agent, LearningGridAgent):
+                             next_state_vector = agent._get_state_vector(obs, env.goal)
+                             agent.learn_from_step(state_vector, action_idx, reward, next_state_vector, done)
                         
                         # Log Metric
                         epsilon_val = getattr(agent, "epsilon", 0.0)
@@ -190,6 +195,9 @@ async def run_simulation_loop():
                         # If done, reset just this agent? or mark done?
                         # For continuous sim, let's reset this agent
                         if done:
+                            if hasattr(agent, "on_episode_end"):
+                                agent.on_episode_end()
+                                
                             obs = env.reset(agent_id=agent.agent_id)
                             agent.state["current_position"] = obs
                             logger.info(f"Agent {agent.agent_id} reached goal! Resetting.")

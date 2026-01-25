@@ -1,131 +1,164 @@
-RefinementTest - 
->>> GENERATION 0: Threshold=60.0% <<<
 MessageBus - MessageBus started.
-Agent.Gen0-Bot-0 - Agent Gen0-Bot-0 starting...
-MessageBus - Registered agent 'Gen0-Bot-0'
-Agent.Gen0-Bot-0 - [task_added] {'task': 'start_logistics'}
-Agent.Gen0-Bot-1 - Agent Gen0-Bot-1 starting...
-MessageBus - Registered agent 'Gen0-Bot-1'
-Agent.Gen0-Bot-1 - [task_added] {'task': 'start_logistics'}
-Agent.Gen0-Bot-0 - [task_started] {'task': 'start_logistics'}
-Agent.Gen0-Bot-0 - [task_completed] {'task': 'start_logistics'}
-Agent.Gen0-Bot-1 - [task_started] {'task': 'start_logistics'}
-Agent.Gen0-Bot-1 - [task_completed] {'task': 'start_logistics'}
-Agent.Gen0-Bot-0 - Starting logistics loop
-Agent.Gen0-Bot-0 - New Goal: pickup at (0, 4)
-Agent.Gen0-Bot-1 - Starting logistics loop
-Agent.Gen0-Bot-1 - New Goal: pickup at (0, 2)
-Agent.Gen0-Bot-1 - New Goal: dropoff at (5, 1)
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 0)
-Agent.Gen0-Bot-1 - New Goal: pickup at (0, 2)
-Agent.Gen0-Bot-1 - New Goal: dropoff at (5, 1)
-Agent.Gen0-Bot-0 - New Goal: pickup at (0, 4)
-Agent.Gen0-Bot-1 - New Goal: pickup at (0, 4)
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 3)
-Agent.Gen0-Bot-1 - New Goal: dropoff at (5, 0)
-Agent.Gen0-Bot-0 - New Goal: pickup at (0, 0)
-Agent.Gen0-Bot-1 - New Goal: pickup at (0, 0)
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 4)
-Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
-Agent.Gen0-Bot-0 - Battery low (59.5%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 2)
-Agent.Gen0-Bot-1 - New Goal: charge at (1, 5)
-Agent.Gen0-Bot-1 - Battery low (59.5%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: charge at (1, 5)
-Agent.Gen0-Bot-0 - Battery low (59.0%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
-Agent.Gen0-Bot-0 - New Goal: charge at (4, 5)
-Agent.Gen0-Bot-0 - Battery low (58.5%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 1)
-Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
-Agent.Gen0-Bot-0 - Battery low (58.0%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 0)
-Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
-Agent.Gen0-Bot-0 - Battery low (57.5%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
-Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
-Agent.Gen0-Bot-0 - Battery low (57.0%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
-Agent.Gen0-Bot-0 - New Goal: charge at (4, 5)
-Agent.Gen0-Bot-0 - Battery low (56.5%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
-Agent.Gen0-Bot-0 - New Goal: charge at (2, 5)
-Agent.Gen0-Bot-0 - Battery low (56.0%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 2)
-Agent.Gen0-Bot-0 - New Goal: charge at (0, 5)
-Agent.Gen0-Bot-0 - Battery low (55.5%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 0)
-Agent.Gen0-Bot-0 - New Goal: charge at (1, 5)
-Agent.Gen0-Bot-0 - Battery low (55.0%), heading to charger
-Agent.Gen0-Bot-0 - New Goal: dropoff at (5, 5)
-RefinementTest - Gen 0 Result: SUCCESS (Deaths: 0, Fitness: 40.0)
-Agent.Gen0-Bot-0 - Agent Gen0-Bot-0 stopping...
-Agent.Gen0-Bot-1 - Agent Gen0-Bot-1 stopping...
+Agent.Worker - Agent Worker starting...
+MessageBus - Registered agent 'Worker'
+Agent.Worker - [task_added] {'task': 'task_1'}
+Agent.Worker - [task_started] {'task': 'task_1'}
+Agent.Worker - [task_completed] {'task': 'task_1'}
+Agent.Worker - Agent Worker stopping...
 MessageBus - MessageBus stopped.
-RefinementTest - -> Safe! Pushing efficiency (lowering threshold).
-RefinementTest - 
->>> GENERATION 1: Threshold=40.0% <<<
 MessageBus - MessageBus started.
-Agent.Gen1-Bot-0 - Agent Gen1-Bot-0 starting...
-MessageBus - Registered agent 'Gen1-Bot-0'
-Agent.Gen1-Bot-0 - [task_added] {'task': 'start_logistics'}
-Agent.Gen1-Bot-1 - Agent Gen1-Bot-1 starting...
-MessageBus - Registered agent 'Gen1-Bot-1'
-Agent.Gen1-Bot-1 - [task_added] {'task': 'start_logistics'}
-Agent.Gen1-Bot-0 - [task_started] {'task': 'start_logistics'}
-Agent.Gen1-Bot-0 - [task_completed] {'task': 'start_logistics'}
-Agent.Gen1-Bot-1 - [task_started] {'task': 'start_logistics'}
-Agent.Gen1-Bot-1 - [task_completed] {'task': 'start_logistics'}
-Agent.Gen1-Bot-0 - Starting logistics loop
-Agent.Gen1-Bot-0 - New Goal: pickup at (0, 4)
-Agent.Gen1-Bot-1 - Starting logistics loop
-Agent.Gen1-Bot-1 - New Goal: pickup at (0, 5)
-Agent.Gen1-Bot-1 - New Goal: dropoff at (5, 1)
-Agent.Gen1-Bot-0 - New Goal: dropoff at (5, 5)
-RefinementTest - Gen 1 Result: SUCCESS (Deaths: 0, Fitness: 60.0)
-Agent.Gen1-Bot-0 - Agent Gen1-Bot-0 stopping...
-Agent.Gen1-Bot-1 - Agent Gen1-Bot-1 stopping...
+Agent.Communicator - [message_sent] {'topic': 'outbox', 'payload': 'hello', 'type': 'event', 'receiver': None, 'trace_id': None, 'parent_id': None}
 MessageBus - MessageBus stopped.
-RefinementTest - -> Safe! Pushing efficiency (lowering threshold).
-RefinementTest - 
->>> GENERATION 2: Threshold=20.0% <<<
+Agent.CheckpointBot - Agent CheckpointBot starting...
+MessageBus - Registered agent 'CheckpointBot'
+Agent.CheckpointBot - [task_added] {'task': 'TestTask_1'}
+Agent.CheckpointBot - [task_started] {'task': 'TestTask_1'}
+Agent.CheckpointBot - [task_completed] {'task': 'TestTask_1'}
+Agent.CheckpointBot - Agent CheckpointBot stopping...
+agents.agent_registry - Failed to import module tests.temp_deps.conflict_agent.agent: Missing Dependency: tests.temp_deps.conflict_agent.agent requires non_existent_package_12345, which is not installed.
+agents.agent_registry - Failed to import module tests.temp_deps.conflict_agent.agent: Dependency Conflict: tests.temp_deps.conflict_agent.agent requires packaging==0.0.1, but installed version is 25.0
 MessageBus - MessageBus started.
-Agent.Gen2-Bot-0 - Agent Gen2-Bot-0 starting...
-MessageBus - Registered agent 'Gen2-Bot-0'
-Agent.Gen2-Bot-0 - [task_added] {'task': 'start_logistics'}
-Agent.Gen2-Bot-1 - Agent Gen2-Bot-1 starting...
-MessageBus - Registered agent 'Gen2-Bot-1'
-Agent.Gen2-Bot-1 - [task_added] {'task': 'start_logistics'}
-Agent.Gen2-Bot-0 - [task_started] {'task': 'start_logistics'}
-Agent.Gen2-Bot-0 - [task_completed] {'task': 'start_logistics'}
-Agent.Gen2-Bot-1 - [task_started] {'task': 'start_logistics'}
-Agent.Gen2-Bot-1 - [task_completed] {'task': 'start_logistics'}
-Agent.Gen2-Bot-0 - Starting logistics loop
-Agent.Gen2-Bot-0 - New Goal: pickup at (0, 1)
-Agent.Gen2-Bot-1 - Starting logistics loop
-Agent.Gen2-Bot-1 - New Goal: pickup at (0, 4)
-Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 0)
-Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 1)
-Agent.Gen2-Bot-0 - New Goal: pickup at (0, 5)
-Agent.Gen2-Bot-1 - New Goal: pickup at (0, 2)
-Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 2)
-Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 4)
-Agent.Gen2-Bot-1 - New Goal: pickup at (0, 3)
-Agent.Gen2-Bot-0 - New Goal: pickup at (0, 4)
-Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 5)
-Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 3)
-Agent.Gen2-Bot-1 - New Goal: pickup at (0, 5)
-Agent.Gen2-Bot-0 - New Goal: pickup at (0, 4)
-Agent.Gen2-Bot-1 - New Goal: dropoff at (5, 4)
-Agent.Gen2-Bot-0 - New Goal: dropoff at (5, 0)
-Agent.Gen2-Bot-1 - New Goal: pickup at (0, 5)
-RefinementTest - Gen 2 Result: SUCCESS (Deaths: 0, Fitness: 80.0)
-Agent.Gen2-Bot-0 - Agent Gen2-Bot-0 stopping...
-Agent.Gen2-Bot-1 - Agent Gen2-Bot-1 stopping...
+MessageBus - Error handling message on topic 'dangerous_topic': Bad Handler Logic
 MessageBus - MessageBus stopped.
-RefinementTest - -> Safe! Pushing efficiency (lowering threshold).
-RefinementTest - 
->>> OPTIMIZATION SUMMARY <<<
-RefinementTest - Threshold: 60.0%, Deaths: 0, Fitness: 40.0
-RefinementTest - Threshold: 40.0%, Deaths: 0, Fitness: 60.0
-RefinementTest - Threshold: 20.0%, Deaths: 0, Fitness: 80.0
+Agent.ClumsyBot - Agent ClumsyBot starting...
+MessageBus - Registered agent 'ClumsyBot'
+Agent.ClumsyBot - [task_added] {'task': 'explode'}
+Agent.ClumsyBot - [task_added] {'task': 'work'}
+Agent.ClumsyBot - [task_started] {'task': 'explode'}
+Agent.ClumsyBot - Error processing task: Intentional Explosion
+Agent.ClumsyBot - [task_error] {'error': 'Intentional Explosion'}
+Agent.ClumsyBot - [task_started] {'task': 'work'}
+Agent.ClumsyBot - [task_completed] {'task': 'work'}
+Agent.ClumsyBot - Agent ClumsyBot stopping...
+MessageBus - MessageBus started.
+Agent.Agent-A - Agent Agent-A starting...
+MessageBus - Registered agent 'Agent-A'
+Agent.Agent-B - Agent Agent-B starting...
+MessageBus - Registered agent 'Agent-B'
+Agent.Agent-A - Agent Agent-A stopping...
+Agent.Agent-B - [task_added] {'task': 'ping'}
+Agent.Agent-B - [task_started] {'task': 'ping'}
+Agent.Agent-B - [message_sent] {'topic': 'b_alive', 'payload': 'I am here', 'type': 'event', 'receiver': None, 'trace_id': None, 'parent_id': None}
+Agent.Agent-B - [task_completed] {'task': 'ping'}
+Agent.Agent-B - Agent Agent-B stopping...
+MessageBus - MessageBus stopped.
+Agent.stable_bot - Agent stable_bot starting...
+MessageBus - Registered agent 'stable_bot'
+Agent.fragile_bot - Agent fragile_bot starting...
+MessageBus - Registered agent 'fragile_bot'
+Agent.fragile_bot - [task_added] {'task': 'crash'}
+Agent.fragile_bot - [task_started] {'task': 'crash'}
+Agent.fragile_bot - Error processing task: Intentional Crash for Testing
+Agent.fragile_bot - [task_error] {'error': 'Intentional Crash for Testing'}
+Agent.stable_bot - Agent stable_bot stopping...
+Agent.fragile_bot - Agent fragile_bot stopping...
+MessageBus - MessageBus started.
+MessageBus - Registered agent 'agent_b'
+TestHotSwap - Loading V1...
+TestHotSwap - Stopping V1...
+Agent.hot_swap_a - Agent hot_swap_a stopping...
+TestHotSwap - Modifying code to V2...
+TestHotSwap - Reloading V2...
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+Agent.agent_1 - Agent agent_1 starting...
+MessageBus - Registered agent 'agent_1'
+Agent.agent_1 - [message_sent] {'topic': 'agent_topic', 'payload': 'agent_payload', 'type': 'response', 'receiver': 'target_agent', 'trace_id': None, 'parent_id': None}
+Agent.agent_1 - Agent agent_1 stopping...
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+Agent.Agent-A - Initialized new model. No checkpoint at models/Agent-A_mlp.pth
+Agent.Agent-B - Initialized new model. No checkpoint at models/Agent-B_mlp.pth
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+Agent.CPU-1 - Agent CPU-1 starting...
+MessageBus - Registered agent 'CPU-1'
+Agent.CPU-1 - [task_added] {'task': 'calc_10'}
+Agent.CPU-1 - [task_started] {'task': 'calc_10'}
+Agent.CPU-1 - [message_sent] {'topic': 'result', 'payload': 100, 'type': 'event', 'receiver': None, 'trace_id': None, 'parent_id': None}
+Agent.CPU-1 - [task_completed] {'task': 'calc_10'}
+Agent.CPU-1 - Agent CPU-1 stopping...
+MessageBus - MessageBus stopped.
+MessageBus - MessageBus started.
+Agent.CPU-Multi - Agent CPU-Multi starting...
+MessageBus - Registered agent 'CPU-Multi'
+Agent.CPU-Multi - [task_added] {'task': 'calc_5'}
+Agent.CPU-Multi - [task_added] {'task': 'calc_6'}
+Agent.CPU-Multi - [task_added] {'task': 'calc_7'}
+Agent.CPU-Multi - [task_started] {'task': 'calc_5'}
+Agent.CPU-Multi - [message_sent] {'topic': 'result', 'payload': 25, 'type': 'event', 'receiver': None, 'trace_id': None, 'parent_id': None}
+Agent.CPU-Multi - [task_completed] {'task': 'calc_5'}
+Agent.CPU-Multi - [task_started] {'task': 'calc_6'}
+Agent.CPU-Multi - [message_sent] {'topic': 'result', 'payload': 36, 'type': 'event', 'receiver': None, 'trace_id': None, 'parent_id': None}
+Agent.CPU-Multi - [task_completed] {'task': 'calc_6'}
+Agent.CPU-Multi - [task_started] {'task': 'calc_7'}
+Agent.CPU-Multi - [message_sent] {'topic': 'result', 'payload': 49, 'type': 'event', 'receiver': None, 'trace_id': None, 'parent_id': None}
+Agent.CPU-Multi - [task_completed] {'task': 'calc_7'}
+Agent.CPU-Multi - Agent CPU-Multi stopping...
+MessageBus - MessageBus stopped.
+agents.agent_registry - Failed to import module tests.temp_security.hacker_agent: Security Alert: Agent imports illegal module 'os'
+agents.agent_registry - Failed to import module tests.temp_security.subprocess_agent: Security Alert: Agent imports illegal module 'subprocess'
+Agent.loop_bot - Agent loop_bot starting...
+Agent.loop_bot - [task_added] {'task': 'freeze'}
+Agent.loop_bot - [task_started] {'task': 'freeze'}
+Agent.loop_bot - Task execution timed out: freeze
+Agent.loop_bot - [task_completed] {'task': 'freeze'}
+Agent.loop_bot - Agent loop_bot stopping...
+Agent.FIFO-Agent - Agent FIFO-Agent starting...
+MessageBus - Registered agent 'FIFO-Agent'
+Agent.FIFO-Agent - [task_added] {'task': '1'}
+Agent.FIFO-Agent - [task_added] {'task': '2'}
+Agent.FIFO-Agent - [task_added] {'task': '3'}
+Agent.FIFO-Agent - [task_started] {'task': '1'}
+Agent.FIFO-Agent - [task_completed] {'task': '1'}
+Agent.FIFO-Agent - [task_started] {'task': '2'}
+Agent.FIFO-Agent - [task_completed] {'task': '2'}
+Agent.FIFO-Agent - [task_started] {'task': '3'}
+Agent.FIFO-Agent - [task_completed] {'task': '3'}
+Agent.FIFO-Agent - Agent FIFO-Agent stopping...
+Agent.Dynamic-Agent - Agent Dynamic-Agent starting...
+MessageBus - Registered agent 'Dynamic-Agent'
+Agent.Dynamic-Agent - [task_added] {'task': 'A'}
+Agent.Dynamic-Agent - [task_added] {'task': 'C'}
+Agent.Dynamic-Agent - [task_started] {'task': 'A'}
+Agent.Dynamic-Agent - [task_added] {'task': 'B'}
+Agent.Dynamic-Agent - [task_completed] {'task': 'A'}
+Agent.Dynamic-Agent - [task_started] {'task': 'C'}
+Agent.Dynamic-Agent - [task_completed] {'task': 'C'}
+Agent.Dynamic-Agent - [task_started] {'task': 'B'}
+Agent.Dynamic-Agent - [task_completed] {'task': 'B'}
+Agent.Dynamic-Agent - Agent Dynamic-Agent stopping...
+Agent.Retry-Agent - Agent Retry-Agent starting...
+MessageBus - Registered agent 'Retry-Agent'
+Agent.Retry-Agent - [task_added] {'task': 'Fail_Once'}
+Agent.Retry-Agent - [task_started] {'task': 'Fail_Once'}
+Agent.Retry-Agent - [task_added] {'task': 'Fail_Once'}
+Agent.Retry-Agent - [task_completed] {'task': 'Fail_Once'}
+Agent.Retry-Agent - [task_started] {'task': 'Fail_Once'}
+Agent.Retry-Agent - [task_completed] {'task': 'Fail_Once'}
+Agent.Retry-Agent - Agent Retry-Agent stopping...
+Agent.legacy_bot - DeprecationWarning: Agent implements legacy 'perform' method. Please migrate to 'process_task'.
+MessageBus - Registered agent 'control'
+MessageBus - MessageBus started.
+Agent.crasher - Agent crasher starting...
+MessageBus - Registered agent 'crasher'
+Agent.crasher - [task_added] {'task': 'bad_task'}
+Agent.crasher - [task_started] {'task': 'bad_task'}
+Agent.crasher - Error processing task: POISON PILL
+Agent.crasher - [task_error] {'error': 'POISON PILL'}
+Agent.crasher - Agent crasher stopping...
