@@ -210,6 +210,7 @@ class MessageBus:
                 if message.topic in self._subscribers:
                     for handler in self._subscribers[message.topic]:
                         # print(f"DEBUG: Delivering {message.topic} to handler")
+                        # print(f"DEBUG: Delivering {message.topic} to handler {handler}")
                         try:
                             if inspect.iscoroutinefunction(handler):
                                 await handler(message)

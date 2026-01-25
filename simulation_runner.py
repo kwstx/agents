@@ -63,6 +63,7 @@ async def run_simulation_loop():
     # Initialize components
     bus = MessageBus()
     await bus.start()
+    system_token = bus.register("System")
     
     env = GridWorld(size=args.env_size)
     model = GridDecisionModel(ModelConfig(input_size=4, output_size=4)) # UP, DOWN, LEFT, RIGHT
@@ -118,11 +119,11 @@ async def run_simulation_loop():
             status = config.get("status", "STOPPED")
             
             if status == "STOPPED":
-                time.sleep(1)
+                await asyncio.sleep(1)
                 continue
                 
             if status == "PAUSED":
-                time.sleep(0.5)
+                await asyncio.sleep(0.5)
                 continue
             
             if status == "RUNNING":
@@ -193,12 +194,12 @@ async def run_simulation_loop():
                             agent.state["current_position"] = obs
                             logger.info(f"Agent {agent.agent_id} reached goal! Resetting.")
                             # Optional: Send finding to other agents?
-                            await bus.publish("goal_reached", agent.agent_id, {"pos": env.goal})
+                            await bus.publish("goal_reached", "System", {"agent_id": agent.agent_id, "pos": env.goal}, auth_token=system_token)
                 
                 # Render periodically or just log?
                 # env.render() # Spammy if too fast
                 
-                time.sleep(0.1) # Throttle slightly
+                await asyncio.sleep(0.1) # Throttle slightly
                 
         except KeyboardInterrupt:
             break

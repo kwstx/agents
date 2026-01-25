@@ -52,7 +52,8 @@ def run_scenario(scenario_name):
         
     # Launch
     print(f"Launching process: {' '.join(cmd)}")
-    process = subprocess.Popen(cmd)
+    with open("logs/latest_run.log", "w") as log_file:
+        process = subprocess.Popen(cmd, stdout=log_file, stderr=subprocess.STDOUT)
     
     try:
         duration = config.get("duration_s", 10)
