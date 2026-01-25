@@ -1,17 +1,7 @@
-============================= test session starts =============================
-platform win32 -- Python 3.14.0, pytest-9.0.2, pluggy-1.6.0 -- C:\Python314\python.exe
-cachedir: .pytest_cache
-rootdir: C:\Users\galan\potion\agent_forge_mvp
-plugins: anyio-4.11.0, asyncio-1.3.0
-asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collecting ... collected 3 items
+test_load_finance_agent (test_dynamic_loading.TestDynamicLoading.test_load_finance_agent) ... ok
+test_load_robotics_sim (test_dynamic_loading.TestDynamicLoading.test_load_robotics_sim) ... ok
 
-tests/test_query_capabilities.py::test_query_filtering PASSED            [ 33%]
-tests/test_query_capabilities.py::test_time_range_query PASSED           [ 66%]
-tests/test_memory_performance.py::test_query_performance_large_dataset PASSED [100%]
+----------------------------------------------------------------------
+Ran 2 tests in 0.005s
 
-============================== 3 passed in 0.47s ==============================
-
-STDERR:
-
-Exit Code: 0
+OK

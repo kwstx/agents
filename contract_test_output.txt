@@ -1,0 +1,9 @@
+test_load_malformed_agent (test_plugin_contract.TestPluginContract.test_load_malformed_agent)
+Ensure loading an agent missing required methods raises TypeError. ... ok
+test_load_malformed_env (test_plugin_contract.TestPluginContract.test_load_malformed_env)
+Ensure loading an environment missing required methods raises TypeError. ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

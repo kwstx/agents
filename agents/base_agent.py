@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import inspect
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional
 from datetime import datetime
@@ -149,8 +150,14 @@ class BaseAgent(ABC):
                 self.state["status"] = "working"
                 self.log_activity("task_started", {"task": str(task)})
                 
-                # Execute task
-                result = await self.process_task(task)
+                # Execute task with strict timeout
+                try:
+                    # Timeout default 5.0s, could be configurable per task
+                    result = await asyncio.wait_for(self.process_task(task), timeout=5.0)
+                except asyncio.TimeoutError:
+                    self.logger.error(f"Task execution timed out: {task}")
+                    result = {"status": "failed", "error": "Execution Timed Out"}
+                    # We continue the loop, agent survives
                 
                 self.task_queue.task_done()
                 self.state["status"] = "active"
@@ -164,10 +171,28 @@ class BaseAgent(ABC):
                 self.logger.error(f"Error processing task: {e}")
                 self.log_activity("task_error", {"error": str(e)})
 
-    @abstractmethod
     async def process_task(self, task: Any):
-        """Abstract method to define how to handle a task."""
-        pass
+        """
+        Method to define how to handle a task.
+        Implementation of 'process_task' is preferred.
+        Falls back to 'perform' (legacy) with a warning.
+        
+        Args:
+            task (BaseTask): The task to process.
+        
+        Returns:
+            Any: The result of the task processing.
+        """
+        # Compatibility Layer for v1 agents
+        if hasattr(self, 'perform') and callable(self.perform):
+             self.logger.warning("DeprecationWarning: Agent implements legacy 'perform' method. Please migrate to 'process_task'.")
+             # Handle async vs sync legacy perform
+             if inspect.iscoroutinefunction(self.perform):
+                 return await self.perform(task)
+             else:
+                 return self.perform(task)
+                 
+        raise NotImplementedError("Agent must implement 'process_task'.")
 
     def log_activity(self, activity_type: str, details: Dict[str, Any]):
         """ centralized logging for tracking agent behavior."""

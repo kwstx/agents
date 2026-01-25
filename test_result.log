@@ -1,0 +1,18 @@
+E.
+======================================================================
+ERROR: test_load_finance_agent (__main__.TestDynamicLoading.test_load_finance_agent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "c:\Users\galan\potion\agent_forge_mvp\tests\test_dynamic_loading.py", line 20, in test_load_finance_agent
+    agent = agent_cls(agent_id="fin_bot_1", message_bus=mock_bus)
+TypeError: Can't instantiate abstract class FinanceAgent without an implementation for abstract method 'process_task'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+FAILED (errors=1)
+
+Testing dynamic load of FinanceAgent...
+
+Testing dynamic load of RoboticsSim...
+RoboticsSim state: {'joints': [1.5, 0.0, 0.0, 0.0]}
