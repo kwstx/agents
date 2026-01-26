@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: agent_forge
+Version: 0.2.0
+Summary: The Risk Verification Platform for Autonomous Agents
+Requires-Python: >=3.9
+Requires-Dist: typer>=0.9.0
+Requires-Dist: fastapi>=0.100.0
+Requires-Dist: uvicorn>=0.23.0
+Requires-Dist: websockets>=11.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: rich>=13.0
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

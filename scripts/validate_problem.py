@@ -31,7 +31,10 @@ async def test_charging_death_spiral():
     bus = MessageBus()
     await bus.start()
     
+    # Death Spiral: 5 agents, 1 charger (at 1,4), small grid
     env = WarehouseEnv(size=5, num_agents=5)
+    # Manually set chargers: ONLY ONE at (1,4)
+    env.chargers = [(1, 4)]
     engine = SimulationEngine(env)
     
     # Setup Agents with CRITICAL battery

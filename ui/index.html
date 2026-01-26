@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Forge: Mission Control</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; }
+        .grid-cell { transition: all 0.2s; }
+        .agent { transition: all 0.2s; }
+        @keyframes flash-red {
+            0% { border-color: transparent; }
+            50% { border-color: red; box-shadow: 0 0 20px red; }
+            100% { border-color: transparent; }
+        }
+        .critical-alert { animation: flash-red 1s infinite; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="dashboard.js"></script>
+</body>
+</html>
