@@ -11,10 +11,52 @@ def init(name: str):
     """
     Initialize a new agent project.
     """
-    console.print(f"[green]Initializing new Agent Forge project: {name}[/green]")
-    # TODO: Generate scaffold
-    console.print("Created agent_config.yaml")
-    console.print("Created src/agent.py")
+    import os
+    from pathlib import Path
+    
+    project_dir = Path(name)
+    if project_dir.exists():
+        console.print(f"[bold red]Error: Directory '{name}' already exists.[/bold red]")
+        raise typer.Exit(code=1)
+        
+    try:
+        project_dir.mkdir(parents=True)
+        console.print(f"[green]Initializing new Agent Forge project: {name}[/green]")
+        
+        # Create agent_config.yaml
+        config_content = """
+agent:
+  name: ${name}
+  version: 0.1.0
+  vertical: logistics
+  
+capabilities:
+  - planning
+  - reasoning
+  """
+        with open(project_dir / "agent_config.yaml", "w") as f:
+             f.write(config_content.strip().replace("${name}", name))
+        console.print("Created agent_config.yaml")
+
+        # Create my_agent.py
+        agent_code = """
+class MyAgent:
+    def __init__(self):
+        self.name = "MyAgent"
+
+    def think(self, observation):
+        # Implement your agent's logic here
+        return "wait"
+"""
+        with open(project_dir / "my_agent.py", "w") as f:
+            f.write(agent_code.strip())
+        console.print("Created my_agent.py")
+        
+        console.print(f"[bold green]Success! Project '{name}' created.[/bold green]")
+        
+    except Exception as e:
+        console.print(f"[bold red]Failed to initialize project: {e}[/bold red]")
+        raise typer.Exit(code=1)
 
 @app.command()
 def verify(
@@ -24,19 +66,17 @@ def verify(
     """
     Run static analysis and smoke tests on the agent.
     """
+    from agent_forge.core.verifier import Verifier
+    
     console.print(f"[bold yellow]Running Verification Suite for {vertical}...[/bold yellow]")
-    # Mock Verification Logic
-    import time
-    with console.status("[bold green]Checking Risk Compliance...[/bold green]"):
-        time.sleep(2)
-        console.log("Static Analysis: PASS")
-        time.sleep(1)
-        console.log("Basic Simulation (10s): PASS")
-        time.sleep(1)
-        console.log("Resource Constraints: PASS")
-        
-    console.print("[bold green]VERIFICATION SUCCESSFUL[/bold green]")
-    console.print("Your agent is certified for: [blue]Warehouse-v1[/blue]")
+    
+    verifier = Verifier(path)
+    if verifier.verify():
+        console.print("[bold green]VERIFICATION SUCCESSFUL[/bold green]")
+        console.print(f"Your agent is organic and certified for: [blue]{vertical}[/blue]")
+    else:
+        console.print(verifier.get_report().replace("[BOLD RED]", "[bold red]").replace("[/BOLD RED]", "[/bold red]"))
+        raise typer.Exit(code=1)
 
 @app.command()
 def run(

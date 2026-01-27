@@ -6,8 +6,9 @@ from typing import Any, Dict
 
 class InteractionLogger:
     def __init__(self, db_path: str = "simulation_logs.db", log_file: str = "simulation_events.jsonl"):
-        self.db_path = db_path
+        self.db_path = os.path.abspath(db_path)
         self.log_file = log_file
+        print(f"DEBUG: InteractionLogger DB Path: {self.db_path}")
         self._setup_db()
         self._setup_json_log()
 

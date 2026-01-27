@@ -5,6 +5,8 @@ from agent_forge.core.engine import SimulationEngine
 from agent_forge.envs.warehouse import WarehouseEnv
 from agent_forge.envs.warehouse_agent import WarehouseAgent
 from agent_forge.utils.message_bus import MessageBus
+from agent_forge.utils.interaction_logger import InteractionLogger
+import os
 
 class HeadlessRunner:
     """
@@ -26,16 +28,19 @@ class HeadlessRunner:
         self.bus = MessageBus(log_path=None) 
         await self.bus.start()
 
-        # 2. Env & Engine
+        # 2. Env & Engine & Logger
+        log_db_path = os.path.abspath("simulation_logs.db")
+        self.logger = InteractionLogger(db_path=log_db_path)
+        
         env = WarehouseEnv(size=grid_size, num_agents=num_agents, config=config)
-        self.engine = SimulationEngine(env)
+        self.engine = SimulationEngine(env, logger=self.logger, stress_config=config)
         
         # 3. Agents with Zero Checkpoints
         self.agents = []
         for i in range(num_agents):
             a_id = f"Agent-{i}"
             env.get_agent_state(a_id)
-            agent = WarehouseAgent(a_id, self.bus, self.engine)
+            agent = WarehouseAgent(a_id, self.bus, self.engine, behavior_config=config)
             agent.enable_checkpoints = False # Disable disk I/O
             # Redirect agent logger to Null or Memory if needed, 
             # currently it logs to std logging which is fine (controlled by root logger)

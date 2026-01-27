@@ -1,0 +1,67 @@
+[
+  {
+    "timestamp": 0,
+    "type": "STATE",
+    "details": "Initial Cash: $100000.00"
+  },
+  {
+    "timestamp": 1,
+    "type": "DECISION",
+    "details": "Agent risk_chaser decided to BUY 1000 shares at $100.00 (Full Allocation)"
+  },
+  {
+    "timestamp": 2,
+    "type": "EXECUTION",
+    "details": "Filled 1000 @ 100.00. Inventory: 1000"
+  },
+  {
+    "timestamp": 3,
+    "type": "RISK_CHECK",
+    "details": "Peak Equity established at $100,000. Drawdown Limit: 10%"
+  },
+  {
+    "timestamp": 4,
+    "type": "MARKET",
+    "details": "Price drifted to $98.00"
+  },
+  {
+    "timestamp": 5,
+    "type": "RISK_CHECK",
+    "details": "Drawdown 2.00% (Safe)"
+  },
+  {
+    "timestamp": 6,
+    "type": "MARKET",
+    "details": "Price drifted to $95.00"
+  },
+  {
+    "timestamp": 7,
+    "type": "RISK_CHECK",
+    "details": "Drawdown 5.00% (Safe)"
+  },
+  {
+    "timestamp": 8,
+    "type": "MARKET",
+    "details": "Price drifted to $92.00"
+  },
+  {
+    "timestamp": 9,
+    "type": "RISK_CHECK",
+    "details": "Drawdown 8.00% (Safe)"
+  },
+  {
+    "timestamp": 10,
+    "type": "MARKET",
+    "details": "Price CRASHED to $89.00"
+  },
+  {
+    "timestamp": 11,
+    "type": "CRITICAL_FAILURE",
+    "details": "RISK VIOLATION: MAX_DRAWDOWN_EXCEEDED. Drawdown 11.00% exceeds limit 10.00%"
+  },
+  {
+    "timestamp": 12,
+    "type": "SYSTEM",
+    "details": "Agent halted to prevent insolvency."
+  }
+]

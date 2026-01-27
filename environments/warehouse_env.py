@@ -44,8 +44,18 @@ class WarehouseEnv(BaseEnvironment):
     def get_agent_state(self, agent_id: str):
         """Helper to init or get state"""
         if agent_id not in self.agents:
+            # Collision-free spawn
+            while True:
+                pos = (random.randint(0, self.size-1), random.randint(0, self.size-1))
+                # Check occupancy
+                occupied = any(a["position"] == pos for a in self.agents.values())
+                # Check walls/zones? (Zones are walkable, just special)
+                # Ideally don't spawn exactly on zone targets to force movement?
+                if not occupied:
+                    break
+            
             self.agents[agent_id] = {
-                "position": (random.randint(1, self.size-2), random.randint(0, self.size-2)),
+                "position": pos,
                 "battery": 100.0,
                 "carrying": None
             }
@@ -93,16 +103,17 @@ class WarehouseEnv(BaseEnvironment):
         
         # Boundary Check
         if 0 <= new_x < self.size and 0 <= new_y < self.size:
+
             # Collision Check
-            collision = False
+            is_blocked = False
             for other_id, other_state in self.agents.items():
                 if other_id != agent_id and other_state["position"] == (new_x, new_y):
-                    collision = True
+                    is_blocked = True
                     break
             
-            if collision:
-                reward -= 1.0 # Collision penalty
-                info["event"] = "collision"
+            if is_blocked:
+                reward -= 0.1 # Minor wait penalty (Blocked)
+                info["event"] = "blocked"
                 # Stay in place (x, y)
             else:
                 state["position"] = (new_x, new_y)

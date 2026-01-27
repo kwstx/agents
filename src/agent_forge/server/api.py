@@ -1,10 +1,10 @@
 import asyncio
 import uuid
 import logging
-from typing import Dict, Any, List
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from typing import Dict, Any, List, Optional
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from agent_forge.core.engine import SimulationEngine
 
@@ -28,9 +28,9 @@ app.add_middleware(
 )
 
 class SimConfig(BaseModel):
-    num_agents: int = 4
-    grid_size: int = 10
-    vertical: str = "warehouse"
+    num_agents: int = Field(4, ge=1, le=1000, description="Number of agents (1-1000)")
+    grid_size: int = Field(10, ge=4, le=1000, description="Grid size (4-1000)")
+    vertical: str = Field("warehouse", pattern="^(warehouse|logistics)$")
 
 from agent_forge.core.runner import HeadlessRunner
 
@@ -42,6 +42,7 @@ class ConnectionManager:
     async def connect(self, websocket: WebSocket):
         await websocket.accept()
         queue = asyncio.Queue(maxsize=100) # Conflation buffer
+
         
         # Start sender task
         task = asyncio.create_task(self._sender_loop(websocket, queue))
@@ -86,6 +87,7 @@ class SessionManager:
         # session_id -> HeadlessRunner
         self.sessions: Dict[str, HeadlessRunner] = {}
         self.connection_manager = ConnectionManager()
+        self._lock = asyncio.Lock()
 
     async def create_session(self) -> str:
         session_id = str(uuid.uuid4())
@@ -127,9 +129,69 @@ class SessionManager:
 
     async def connect_ws(self, websocket: WebSocket):
         await self.connection_manager.connect(websocket)
+        # Send initial snapshot if session exists
+        if "default" in self.sessions:
+            runner = self.sessions["default"]
+            if runner.is_running:
+                 snapshot = await runner.get_snapshot()
+                 await websocket.send_json({
+                     "type": "snapshot",
+                     "data": snapshot,
+                     "timestamp": asyncio.get_event_loop().time()
+                 })
 
     def disconnect_ws(self, websocket: WebSocket):
         self.connection_manager.disconnect(websocket)
+
+    async def _get_or_create_runner(self, session_id: str) -> HeadlessRunner:
+        if session_id not in self.sessions:
+            self.sessions[session_id] = HeadlessRunner()
+        return self.sessions[session_id]
+
+    async def control_session(self, session_id: str, action: str, config: Optional[Dict[str, Any]] = None):
+        async with self._lock:
+            runner = await self._get_or_create_runner(session_id)
+            
+            if action == "start":
+                # If running, stop first (restart behavior)
+                if runner.is_running:
+                    logger.info(f"Restarting session {session_id}...")
+                    await runner.stop()
+                
+                # Setup
+                conf_dict = config or {}
+                await runner.setup(
+                    num_agents=conf_dict.get("num_agents", 4),
+                    grid_size=conf_dict.get("grid_size", 10),
+                    config=conf_dict
+                )
+                
+                # Hook callback
+                if runner.engine:
+                    runner.engine.on_step_callback = self.on_engine_step
+
+                await runner.start()
+                logger.info(f"Started session {session_id}")
+
+            elif action == "stop":
+                await runner.stop()
+                # Optional: Remove from sessions if we want fresh state next time
+                # del self.sessions[session_id] 
+                logger.info(f"Stopped session {session_id}")
+            
+            elif action == "pause":
+                await runner.pause()
+                logger.info(f"Paused session {session_id}")
+            
+            elif action == "resume":
+                await runner.resume()
+                logger.info(f"Resumed session {session_id}")
+            
+            else:
+                raise ValueError(f"Unknown action: {action}")
+            
+            return {"status": runner.status, "is_running": runner.is_running}
+
 
     async def on_engine_step(self, update: Dict[str, Any]):
         """Broadcasts updates to all connected clients."""
@@ -151,21 +213,34 @@ async def websocket_endpoint(websocket: WebSocket):
 
 @app.post("/api/sim/start")
 async def start_sim(config: SimConfig):
-    # For MVP backward compatibility with single-tenant UI, we use a fixed session or create one
-    # ideally UI sends session_id.
-    # We'll use a singleton "default" session for now to keep UI simple
-    session_id = "default"
-    if session_id not in session_manager.sessions:
-        runner = HeadlessRunner()
-        session_manager.sessions[session_id] = runner
-    
-    await session_manager.start_session(session_id, config)
-    return {"status": "started", "session_id": session_id, "config": config}
+    # Legacy wrapper
+    await session_manager.control_session("default", "start", config.dict())
+    return {"status": "started", "session_id": "default", "config": config}
 
 @app.post("/api/sim/stop")
 async def stop_sim():
-    await session_manager.stop_session("default")
+    # Legacy wrapper
+    await session_manager.control_session("default", "stop")
     return {"status": "stopped"}
+
+class ControlRequest(BaseModel):
+    action: str # start, stop, pause, resume
+    config: Optional[SimConfig] = None
+
+@app.post("/api/v1/sim/control")
+async def control_sim(req: ControlRequest):
+    try:
+        # If config is provided, convert to dict using model_dump for Pydantic v2
+        conf_dict = req.config.model_dump() if req.config else {}
+        result = await session_manager.control_session("default", req.action, conf_dict)
+        return result
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/api/v1/sim/state")
+async def get_full_state():
+    runner = await session_manager._get_or_create_runner("default")
+    return await runner.get_snapshot()
 
 @app.get("/api/sim/status")
 async def get_status():

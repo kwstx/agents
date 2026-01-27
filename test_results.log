@@ -1,0 +1,17 @@
+Running test_empty_folder...
+Test: Empty Folder... PASSED
+PASSED: test_empty_folder
+Running test_existing_files...
+Test: Existing Files... PASSED
+PASSED: test_existing_files
+Running test_nested_directories...
+Test: Nested Directories... PASSED
+PASSED: test_nested_directories
+Running test_special_characters...
+Test: Special Characters... PASSED
+PASSED: test_special_characters
+Running test_directory_collision...
+Test: Directory Collision... PASSED (Correctly detected collision)
+PASSED: test_directory_collision
+
+All robustness tests PASSED.

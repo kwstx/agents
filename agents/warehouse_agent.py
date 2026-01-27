@@ -31,12 +31,17 @@ class WarehouseAgent(BaseAgent):
 
     async def run_logistics_loop(self):
         self.logger.info("Starting logistics loop")
+        
+        # Desynchronize Start (Jitter)
+        await asyncio.sleep(random.uniform(0.0, 2.0))
+        
         # Initialize
         obs = await self.engine.get_state(self.agent_id)
         
         while self.running:
             await self.step()
-            await asyncio.sleep(0.1)
+            # Step Jitter (0.1 +/- 0.05s)
+            await asyncio.sleep(max(0.05, 0.1 + random.uniform(-0.05, 0.05)))
             
     async def step(self):
         # 1. Sense

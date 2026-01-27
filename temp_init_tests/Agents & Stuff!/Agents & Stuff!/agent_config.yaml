@@ -1,0 +1,8 @@
+agent:
+  name: Agents & Stuff!
+  version: 0.1.0
+  vertical: logistics
+  
+capabilities:
+  - planning
+  - reasoning

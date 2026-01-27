@@ -1,5 +1,6 @@
 import asyncio
 import random
+import time
 from typing import List, Tuple, Optional
 from agent_forge.core.base_agent import BaseAgent
 from agent_forge.core.engine import SimulationEngine
@@ -34,9 +35,23 @@ class WarehouseAgent(BaseAgent):
         # Initialize
         obs = await self.engine.get_state(self.agent_id)
         
+        # Desynchronize Start
+        start_delay_max = self.behavior.get("start_delay_max", 2.0)
+        if start_delay_max > 0:
+            await asyncio.sleep(random.uniform(0.0, start_delay_max))
+        
         while self.running:
             await self.step()
-            await asyncio.sleep(0.1)
+            # Jitter step
+            step_interval = self.behavior.get("step_interval", 0.1)
+            step_jitter = self.behavior.get("step_jitter", 0.05)
+            
+            delay = step_interval
+            if step_jitter > 0:
+                delay += random.uniform(0.0, step_jitter)
+            
+            await asyncio.sleep(delay)
+
             
     async def step(self):
         # 1. Sense
@@ -45,6 +60,13 @@ class WarehouseAgent(BaseAgent):
             self.logger.warning("No state received!")
             return
             
+        read_time = time.time()
+        server_time = state.get("server_time", read_time) 
+        drift = read_time - server_time
+        
+        # Log Drift stats
+        self.logger.info(f"Drift Analysis - Read: {read_time:.4f}, Server: {server_time:.4f}, Drift: {drift:.4f}s")
+        
         pos = state["position"]
         battery = state["battery"]
         carrying = state["carrying"]
@@ -122,8 +144,34 @@ class WarehouseAgent(BaseAgent):
         tx, ty = target
         
         # Simple Manhattan Logic
-        if cx < tx: return "RIGHT"
-        if cx > tx: return "LEFT"
-        if cy < ty: return "UP"
-        if cy > ty: return "DOWN"
-        return "STAY"
+        next_pos = current
+        action = "STAY"
+        
+        if cx < tx: 
+            action = "RIGHT"
+            next_pos = (cx + 1, cy)
+        elif cx > tx: 
+            action = "LEFT"
+            next_pos = (cx - 1, cy)
+        elif cy < ty: 
+            action = "UP"
+            next_pos = (cx, cy + 1)
+        elif cy > ty: 
+            action = "DOWN"
+            next_pos = (cx, cy - 1)
+            
+        # Collision Avoidance (Sensor)
+        if self._is_occupied(next_pos):
+            self.logger.warning(f"Path blocked at {next_pos}, waiting...")
+            return "STAY"
+            
+        return action
+
+    def _is_occupied(self, pos: Tuple[int, int]) -> bool:
+        """Checks if a position is occupied by another agent."""
+        # Cheating: accessing env state directly for MVP
+        if hasattr(self.engine, "env") and hasattr(self.engine.env, "agents"):
+             for aid, state in self.engine.env.agents.items():
+                 if aid != self.agent_id and state["position"] == pos:
+                     return True
+        return False

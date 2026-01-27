@@ -4,6 +4,10 @@ function Dashboard() {
     const [logs, setLogs] = useState([]);
     const [gridSize, setGridSize] = useState(10);
     const [riskScore, setRiskScore] = useState(0);
+    const [perfMetrics, setPerfMetrics] = useState({ fps: 0, linkLag: 0 });
+    const lastRenderTime = React.useRef(performance.now());
+    const frameCount = React.useRef(0);
+
 
     useEffect(() => {
         // Portable connection
@@ -30,11 +34,35 @@ function Dashboard() {
                 } else if (msg.info && msg.info.event === "collision") {
                     setRiskScore(prev => Math.min(100, prev + 20));
                     addLog(`COLLISION: ${msg.agent_id} at ${msg.observation.position}`, "critical");
+                } else if (msg.info && msg.info.event === "blocked") {
+                    // Blocked is normal congestion, don't increase risk.
+                    // setRiskScore(prev => Math.min(100, prev + 1)); 
+                    addLog(`BLOCKED: ${msg.agent_id} waiting at ${msg.observation.position}`, "warning");
                 }
+            } else if (msg.type === "snapshot") {
+                // Full state replace
+                setAgents(msg.data);
+                addLog("State synced from snapshot", "info");
             }
+        }
+        // FPS Loop
+        let fpsId;
+        const measureFPS = () => {
+            const now = performance.now();
+            frameCount.current++;
+            if (now - lastRenderTime.current >= 1000) {
+                setPerfMetrics(prev => ({ ...prev, fps: frameCount.current }));
+                frameCount.current = 0;
+                lastRenderTime.current = now;
+            }
+            fpsId = requestAnimationFrame(measureFPS);
         };
+        fpsId = requestAnimationFrame(measureFPS);
 
-        return () => ws.close();
+        return () => {
+            ws.close();
+            cancelAnimationFrame(fpsId);
+        };
     }, []);
 
     const addLog = (text, type = "info") => {
@@ -76,15 +104,26 @@ function Dashboard() {
         <div className={`min-h-screen p-6 ${riskScore > 80 ? 'border-4 border-red-600 critical-alert' : ''}`}>
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold text-blue-500">AGENT FORGE <span className="text-white text-lg">MISSION CONTROL</span></h1>
+                <div>
+                    <h1 className="text-3xl font-bold text-blue-500">AGENT FORGE <span className="text-white text-lg">MISSION CONTROL</span></h1>
+                    <div className="text-xs text-slate-500 font-mono mt-1">v0.9.0-BETA</div>
+                </div>
                 <div className="flex gap-4">
-                    <div className={`px-4 py-2 rounded font-mono ${status === "CONNECTED" ? "bg-green-900 text-green-400" : "bg-red-900 text-red-400"}`}>
+                    <div id="perf-metrics" className="px-4 py-2 bg-slate-800 rounded font-mono text-cyan-400 border border-slate-700">
+                        FPS: {perfMetrics.fps}
+                    </div>
+                    <div className={`px-4 py-2 rounded font-mono border ${status === "CONNECTED" ? "bg-green-900/50 border-green-700 text-green-400" : "bg-red-900/50 border-red-700 text-red-400 animate-pulse"}`}>
                         {status}
                     </div>
-                    <div className="px-4 py-2 bg-slate-800 rounded font-mono">
-                        RISK: <span className={riskScore > 50 ? "text-red-500" : "text-green-500"}>{riskScore}%</span>
-                    </div>
                 </div>
+            </div>
+
+            {/* System Status Banner */}
+            <div className={`mb-6 p-4 rounded-lg font-bold text-center text-xl tracking-widest transition-all duration-300 ${riskScore > 80 ? 'bg-red-600 text-white animate-pulse shadow-[0_0_20px_rgba(220,38,38,0.7)]' :
+                riskScore > 50 ? 'bg-yellow-600 text-black' :
+                    'bg-emerald-900/50 text-emerald-400 border border-emerald-800'
+                }`}>
+                SYSTEM STATUS: {riskScore > 80 ? "CRITICAL FAILURE IMMINENT" : riskScore > 50 ? "DEGRADED PERFORMANCE" : "OPERATIONAL"}
             </div>
 
             <div className="grid grid-cols-12 gap-6">
@@ -100,8 +139,14 @@ function Dashboard() {
                     <div className="bg-slate-900 p-4 rounded-lg border border-slate-700 h-96 overflow-y-auto font-mono text-sm">
                         <h3 className="text-slate-400 mb-2 border-b border-slate-700 pb-1">LIVE EVENT STREAM</h3>
                         {logs.map((log, i) => (
-                            <div key={i} className={`mb-1 ${log.type === "critical" ? "text-red-400 font-bold" : "text-slate-300"}`}>
-                                <span className="text-slate-600">[{log.time}]</span> {log.text}
+                            <div key={i} className={`mb-2 p-1 rounded font-mono text-xs ${log.type === "critical" ? "bg-red-900/30 text-red-300 border-l-2 border-red-500 pl-2" :
+                                log.type === "warning" ? "bg-yellow-900/30 text-yellow-300 border-l-2 border-yellow-500 pl-2" :
+                                    "text-slate-400 pl-2"
+                                }`}>
+                                <span className="opacity-50 mr-2">[{log.time}]</span>
+                                {log.type === "critical" && "🚨 "}
+                                {log.type === "warning" && "⚠️ "}
+                                {log.text}
                             </div>
                         ))}
                     </div>

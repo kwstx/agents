@@ -1,0 +1,51 @@
+INFO:     Started server process [19968]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8018 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58342 - "GET /docs HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-5:Agent Agent-5 starting...
+INFO:MessageBus:Registered agent 'Agent-5'
+INFO:Agent.Agent-5:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+DEBUG: InteractionLogger DB Path: C:\Users\galan\potion\agent_forge_mvp\simulation_logs.db
+INFO:     127.0.0.1:58346 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-5:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-5:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-0:New Goal: pickup at (0, 6)
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-1:New Goal: pickup at (0, 4)
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-2:New Goal: pickup at (0, 4)
+INFO:Agent.Agent-3:Starting logistics loop
+INFO:Agent.Agent-3:New Goal: pickup at (0, 6)
+INFO:Agent.Agent-4:Starting logistics loop
+INFO:Agent.Agent-4:New Goal: pickup at (0, 7)
+INFO:Agent.Agent-5:Starting logistics loop
+INFO:Agent.Agent-5:New Goal: pickup at (0, 0)

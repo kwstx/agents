@@ -6,6 +6,7 @@ from typing import Any, Dict, Optional
 from agent_forge.core.base_env import BaseEnvironment
 from agent_forge.utils.interaction_logger import InteractionLogger
 from agent_forge.core.adversarial import AdversarialMiddleware, AdversarialConfig
+from agent_forge.core.compliance import ComplianceAuditor
 
 class SimulationEngine:
     def __init__(self, 
@@ -19,6 +20,19 @@ class SimulationEngine:
         self.logger = logger
         self.stress_config = stress_config or {}
         self.on_step_callback = None # Callable[[Dict], Awaitable[None]]
+        
+        # Auditor
+        # Grid size hardcoded for MVP or inferred? 
+        # Ideally passed in config, defaulting to 10 for now matching Warehouse default
+        self.auditor = ComplianceAuditor(grid_size=10)
+        
+        # Seed Control
+        if stress_config and "seed" in stress_config:
+            self.seed = stress_config["seed"]
+            random.seed(self.seed)
+            if self.logger:
+                self.logger.log_interaction("engine", "seeded", self.seed, 0.0, {"seed": self.seed}, "")
+        
         
         # Adversarial Middleware
         # For now, disable by default unless stress_config says otherwise
@@ -107,6 +121,15 @@ class SimulationEngine:
              obs, reward, done, info = self.env.step(action)
         duration = time.time() - start
         info["duration"] = duration
+        
+        # Audit Check
+        violations = self.auditor.audit_state(agent_id, obs)
+        if violations:
+            # Convert Violation objects to dicts for JSON serialization
+            info["violations"] = [
+                {"rule": v.rule_id, "msg": v.message, "context": v.context} 
+                for v in violations
+            ]
         
         # Update internal state
         self._current_observation = obs

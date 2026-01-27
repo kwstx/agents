@@ -1,0 +1,1539 @@
+INFO:     Started server process [10592]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8008 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57936 - "GET /docs HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-0:New Goal: pickup at (0, 4)
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-1:New Goal: pickup at (0, 2)
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:API:Paused session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:API:Paused session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:API:Paused session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_completed] {'task': 'start_logistics'}
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-3:Starting logistics loop
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_completed] {'task': 'start_logistics'}
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-3:Starting logistics loop
+INFO:Agent.Agent-4:Starting logistics loop
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-3:Starting logistics loop
+INFO:API:Paused session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-0:New Goal: pickup at (0, 5)
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-1:New Goal: pickup at (0, 6)
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-2:New Goal: pickup at (0, 3)
+INFO:Agent.Agent-3:Starting logistics loop
+INFO:Agent.Agent-3:New Goal: pickup at (0, 8)
+INFO:Agent.Agent-4:Starting logistics loop
+INFO:Agent.Agent-4:New Goal: pickup at (0, 5)
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_completed] {'task': 'start_logistics'}
+INFO:API:Paused session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-3:Starting logistics loop
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57945 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57958 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57943 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57944 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57951 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57941 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57947 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57953 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57940 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Restarting session default...
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57955 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57956 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57939 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57946 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57952 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:API:Resumed session default
+INFO:     127.0.0.1:57949 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57950 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57942 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:MessageBus:MessageBus started.
+INFO:Agent.Agent-0:Agent Agent-0 starting...
+INFO:MessageBus:Registered agent 'Agent-0'
+INFO:Agent.Agent-0:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:Agent Agent-1 starting...
+INFO:MessageBus:Registered agent 'Agent-1'
+INFO:Agent.Agent-1:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:Agent Agent-2 starting...
+INFO:MessageBus:Registered agent 'Agent-2'
+INFO:Agent.Agent-2:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:Agent Agent-3 starting...
+INFO:MessageBus:Registered agent 'Agent-3'
+INFO:Agent.Agent-3:[task_added] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:Agent Agent-4 starting...
+INFO:MessageBus:Registered agent 'Agent-4'
+INFO:Agent.Agent-4:[task_added] {'task': 'start_logistics'}
+INFO:API:Started session default
+INFO:     127.0.0.1:57957 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:API:Paused session default
+INFO:     127.0.0.1:57948 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-1:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-2:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-3:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_started] {'task': 'start_logistics'}
+INFO:Agent.Agent-4:[task_completed] {'task': 'start_logistics'}
+INFO:Agent.Agent-0:Agent Agent-0 stopping...
+INFO:Agent.Agent-1:Agent Agent-1 stopping...
+INFO:Agent.Agent-2:Agent Agent-2 stopping...
+INFO:Agent.Agent-3:Agent Agent-3 stopping...
+INFO:Agent.Agent-4:Agent Agent-4 stopping...
+INFO:MessageBus:MessageBus stopped.
+INFO:API:Stopped session default
+INFO:     127.0.0.1:57954 - "POST /api/v1/sim/control HTTP/1.1" 200 OK
+INFO:Agent.Agent-0:Starting logistics loop
+INFO:Agent.Agent-1:Starting logistics loop
+INFO:Agent.Agent-2:Starting logistics loop
+INFO:Agent.Agent-3:Starting logistics loop
+INFO:Agent.Agent-4:Starting logistics loop
+INFO:     127.0.0.1:57945 - "GET /api/sim/status HTTP/1.1" 200 OK

@@ -1,0 +1,6 @@
+[Baseline (0s Latency)] Collisions: 0
+[Extreme (0.1-0.2s Latency)] Collisions: 0
+--- Results Summary ---
+Baseline Collisions: 0
+Extreme Collisions:  0
+NOTE: Collision rate did not increase. Agents might be robust or density too low.

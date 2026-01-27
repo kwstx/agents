@@ -1,0 +1,703 @@
+[
+  {
+    "seq_id": 1,
+    "agent_id": "Agent-0",
+    "obs_hash": "-66403603055779279",
+    "obs_str": "{'position': (1, 0), 'battery': 99.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        2,
+        0
+      ],
+      "duration": 1.6450881958007812e-05
+    }
+  },
+  {
+    "seq_id": 2,
+    "agent_id": "Agent-1",
+    "obs_hash": "1725068434991678419",
+    "obs_str": "{'position': (4, 3), 'battery': 99.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        5,
+        3
+      ],
+      "duration": 1.4543533325195312e-05
+    }
+  },
+  {
+    "seq_id": 3,
+    "agent_id": "Agent-0",
+    "obs_hash": "-477209763107205182",
+    "obs_str": "{'position': (0, 0), 'battery': 99.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        0
+      ],
+      "duration": 1.1444091796875e-05
+    }
+  },
+  {
+    "seq_id": 4,
+    "agent_id": "Agent-1",
+    "obs_hash": "-2825812146515208528",
+    "obs_str": "{'position': (3, 3), 'battery': 99.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        4,
+        3
+      ],
+      "duration": 7.867813110351562e-06
+    }
+  },
+  {
+    "seq_id": 5,
+    "agent_id": "Agent-0",
+    "obs_hash": "5893983160400342063",
+    "obs_str": "{'position': (0, 1), 'battery': 98.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        0
+      ],
+      "duration": 8.106231689453125e-06
+    }
+  },
+  {
+    "seq_id": 6,
+    "agent_id": "Agent-1",
+    "obs_hash": "-9084962533894678640",
+    "obs_str": "{'position': (2, 3), 'battery': 98.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        3,
+        3
+      ],
+      "duration": 6.67572021484375e-06
+    }
+  },
+  {
+    "seq_id": 7,
+    "agent_id": "Agent-0",
+    "obs_hash": "-6205909124984615597",
+    "obs_str": "{'position': (0, 2), 'battery': 98.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        1
+      ],
+      "duration": 6.4373016357421875e-06
+    }
+  },
+  {
+    "seq_id": 8,
+    "agent_id": "Agent-1",
+    "obs_hash": "348264661148356307",
+    "obs_str": "{'position': (1, 3), 'battery': 98.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        2,
+        3
+      ],
+      "duration": 7.3909759521484375e-06
+    }
+  },
+  {
+    "seq_id": 9,
+    "agent_id": "Agent-0",
+    "obs_hash": "-2544551726881095681",
+    "obs_str": "{'position': (0, 3), 'battery': 97.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        2
+      ],
+      "duration": 5.9604644775390625e-06
+    }
+  },
+  {
+    "seq_id": 10,
+    "agent_id": "Agent-1",
+    "obs_hash": "5131499384893774494",
+    "obs_str": "{'position': (1, 3), 'battery': 97.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.2159347534179688e-05
+    }
+  },
+  {
+    "seq_id": 11,
+    "agent_id": "Agent-0",
+    "obs_hash": "-2605470683943918444",
+    "obs_str": "{'position': (0, 3), 'battery': 97.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "event": "picked_up",
+      "duration": 1.4543533325195312e-05
+    }
+  },
+  {
+    "seq_id": 12,
+    "agent_id": "Agent-1",
+    "obs_hash": "-3887838534804894344",
+    "obs_str": "{'position': (1, 3), 'battery': 97.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.1920928955078125e-05
+    }
+  },
+  {
+    "seq_id": 13,
+    "agent_id": "Agent-0",
+    "obs_hash": "-4729407158480871076",
+    "obs_str": "{'position': (0, 3), 'battery': 96.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.1682510375976562e-05
+    }
+  },
+  {
+    "seq_id": 14,
+    "agent_id": "Agent-1",
+    "obs_hash": "-4272422488282388551",
+    "obs_str": "{'position': (1, 3), 'battery': 96.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.3589859008789062e-05
+    }
+  },
+  {
+    "seq_id": 15,
+    "agent_id": "Agent-0",
+    "obs_hash": "3497631317822938131",
+    "obs_str": "{'position': (0, 3), 'battery': 96.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.33514404296875e-05
+    }
+  },
+  {
+    "seq_id": 16,
+    "agent_id": "Agent-1",
+    "obs_hash": "-7046059786071096247",
+    "obs_str": "{'position': (1, 3), 'battery': 96.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.3113021850585938e-05
+    }
+  },
+  {
+    "seq_id": 17,
+    "agent_id": "Agent-0",
+    "obs_hash": "-5728217906228496778",
+    "obs_str": "{'position': (0, 3), 'battery': 95.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 2.4318695068359375e-05
+    }
+  },
+  {
+    "seq_id": 18,
+    "agent_id": "Agent-1",
+    "obs_hash": "-2419573834123922017",
+    "obs_str": "{'position': (1, 3), 'battery': 95.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.049041748046875e-05
+    }
+  },
+  {
+    "seq_id": 19,
+    "agent_id": "Agent-0",
+    "obs_hash": "-6764743851866068435",
+    "obs_str": "{'position': (0, 3), 'battery': 95.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.5497207641601562e-05
+    }
+  },
+  {
+    "seq_id": 20,
+    "agent_id": "Agent-1",
+    "obs_hash": "2207270868990677001",
+    "obs_str": "{'position': (1, 3), 'battery': 95.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.33514404296875e-05
+    }
+  },
+  {
+    "seq_id": 21,
+    "agent_id": "Agent-0",
+    "obs_hash": "-554948023181185980",
+    "obs_str": "{'position': (0, 3), 'battery': 94.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.6450881958007812e-05
+    }
+  },
+  {
+    "seq_id": 22,
+    "agent_id": "Agent-1",
+    "obs_hash": "-8314711285604251834",
+    "obs_str": "{'position': (1, 3), 'battery': 94.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.3589859008789062e-05
+    }
+  },
+  {
+    "seq_id": 23,
+    "agent_id": "Agent-0",
+    "obs_hash": "1988139293169732179",
+    "obs_str": "{'position': (0, 3), 'battery': 94.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.7642974853515625e-05
+    }
+  },
+  {
+    "seq_id": 24,
+    "agent_id": "Agent-1",
+    "obs_hash": "1085711399232006187",
+    "obs_str": "{'position': (1, 3), 'battery': 94.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 2.2172927856445312e-05
+    }
+  },
+  {
+    "seq_id": 25,
+    "agent_id": "Agent-0",
+    "obs_hash": "-4667818089203112136",
+    "obs_str": "{'position': (0, 3), 'battery': 93.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.4781951904296875e-05
+    }
+  },
+  {
+    "seq_id": 26,
+    "agent_id": "Agent-1",
+    "obs_hash": "-8865474004280668378",
+    "obs_str": "{'position': (1, 3), 'battery': 93.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.430511474609375e-05
+    }
+  },
+  {
+    "seq_id": 27,
+    "agent_id": "Agent-0",
+    "obs_hash": "1919938193191920053",
+    "obs_str": "{'position': (0, 3), 'battery': 93.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.0728836059570312e-05
+    }
+  },
+  {
+    "seq_id": 28,
+    "agent_id": "Agent-1",
+    "obs_hash": "-1734594332402036862",
+    "obs_str": "{'position': (1, 3), 'battery': 93.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.4066696166992188e-05
+    }
+  },
+  {
+    "seq_id": 29,
+    "agent_id": "Agent-0",
+    "obs_hash": "-1596230288321933904",
+    "obs_str": "{'position': (0, 3), 'battery': 92.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.6689300537109375e-05
+    }
+  },
+  {
+    "seq_id": 30,
+    "agent_id": "Agent-1",
+    "obs_hash": "-1625468279136691160",
+    "obs_str": "{'position': (1, 3), 'battery': 92.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.9073486328125e-05
+    }
+  },
+  {
+    "seq_id": 31,
+    "agent_id": "Agent-0",
+    "obs_hash": "-521593091483243378",
+    "obs_str": "{'position': (0, 3), 'battery': 92.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.4543533325195312e-05
+    }
+  },
+  {
+    "seq_id": 32,
+    "agent_id": "Agent-1",
+    "obs_hash": "-6991385255940837851",
+    "obs_str": "{'position': (1, 3), 'battery': 92.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.7404556274414062e-05
+    }
+  },
+  {
+    "seq_id": 33,
+    "agent_id": "Agent-0",
+    "obs_hash": "-8583637614361331550",
+    "obs_str": "{'position': (0, 3), 'battery': 91.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.5974044799804688e-05
+    }
+  },
+  {
+    "seq_id": 34,
+    "agent_id": "Agent-1",
+    "obs_hash": "-4387424735172152940",
+    "obs_str": "{'position': (1, 3), 'battery': 91.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.5974044799804688e-05
+    }
+  },
+  {
+    "seq_id": 35,
+    "agent_id": "Agent-0",
+    "obs_hash": "7251503749256439862",
+    "obs_str": "{'position': (0, 3), 'battery': 91.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.9311904907226562e-05
+    }
+  },
+  {
+    "seq_id": 36,
+    "agent_id": "Agent-1",
+    "obs_hash": "-7890429289523090039",
+    "obs_str": "{'position': (1, 3), 'battery': 91.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 9.775161743164062e-06
+    }
+  },
+  {
+    "seq_id": 37,
+    "agent_id": "Agent-0",
+    "obs_hash": "-1858969614844299018",
+    "obs_str": "{'position': (0, 3), 'battery': 90.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.1444091796875e-05
+    }
+  },
+  {
+    "seq_id": 38,
+    "agent_id": "Agent-1",
+    "obs_hash": "-7552448923424951794",
+    "obs_str": "{'position': (1, 3), 'battery': 90.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.2636184692382812e-05
+    }
+  },
+  {
+    "seq_id": 39,
+    "agent_id": "Agent-0",
+    "obs_hash": "7323736372547701721",
+    "obs_str": "{'position': (0, 3), 'battery': 90.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.4066696166992188e-05
+    }
+  },
+  {
+    "seq_id": 40,
+    "agent_id": "Agent-1",
+    "obs_hash": "-23059879643963890",
+    "obs_str": "{'position': (1, 3), 'battery': 90.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 2.9802322387695312e-05
+    }
+  },
+  {
+    "seq_id": 41,
+    "agent_id": "Agent-0",
+    "obs_hash": "6744403826944453332",
+    "obs_str": "{'position': (0, 3), 'battery': 89.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 5.936622619628906e-05
+    }
+  },
+  {
+    "seq_id": 42,
+    "agent_id": "Agent-1",
+    "obs_hash": "-3935259323920934814",
+    "obs_str": "{'position': (1, 3), 'battery': 89.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.9550323486328125e-05
+    }
+  },
+  {
+    "seq_id": 43,
+    "agent_id": "Agent-0",
+    "obs_hash": "-6509063048806533417",
+    "obs_str": "{'position': (0, 3), 'battery': 89.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 2.0265579223632812e-05
+    }
+  },
+  {
+    "seq_id": 44,
+    "agent_id": "Agent-1",
+    "obs_hash": "3752164017108085388",
+    "obs_str": "{'position': (1, 3), 'battery': 89.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.4066696166992188e-05
+    }
+  },
+  {
+    "seq_id": 45,
+    "agent_id": "Agent-0",
+    "obs_hash": "5103590665161143118",
+    "obs_str": "{'position': (0, 3), 'battery': 88.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 1.239776611328125e-05
+    }
+  },
+  {
+    "seq_id": 46,
+    "agent_id": "Agent-1",
+    "obs_hash": "-6108889110296322180",
+    "obs_str": "{'position': (1, 3), 'battery': 88.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.4066696166992188e-05
+    }
+  },
+  {
+    "seq_id": 47,
+    "agent_id": "Agent-0",
+    "obs_hash": "-7160820603497268664",
+    "obs_str": "{'position': (0, 3), 'battery': 88.0, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 8.20159912109375e-05
+    }
+  },
+  {
+    "seq_id": 48,
+    "agent_id": "Agent-1",
+    "obs_hash": "-3668993889915899031",
+    "obs_str": "{'position': (1, 3), 'battery': 88.0, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.6450881958007812e-05
+    }
+  },
+  {
+    "seq_id": 49,
+    "agent_id": "Agent-0",
+    "obs_hash": "2027610848822227209",
+    "obs_str": "{'position': (0, 3), 'battery': 87.5, 'carrying': 'package'}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        0,
+        3
+      ],
+      "duration": 2.0503997802734375e-05
+    }
+  },
+  {
+    "seq_id": 50,
+    "agent_id": "Agent-1",
+    "obs_hash": "5300326126610475111",
+    "obs_str": "{'position': (1, 3), 'battery': 87.5, 'carrying': None}",
+    "info": {
+      "valid_action": true,
+      "old_pos": [
+        1,
+        3
+      ],
+      "duration": 1.7881393432617188e-05
+    }
+  }
+]
