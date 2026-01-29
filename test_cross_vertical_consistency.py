@@ -1,124 +1,187 @@
 import sys
-from typing import Callable, Any
+import asyncio
+import random
+from typing import Callable, Any, Dict
+
+# Import the Real Engine
+from src.agent_forge.core.engine import SimulationEngine
 from environments.warehouse_env import WarehouseEnv
 from environments.order_book_env import OrderBookEnv
+
+# Import Risk Monitors
 from src.agent_forge.core.logistics_risk import LogisticsRiskMonitor
 from src.agent_forge.core.financial_risk import FinancialRiskMonitor
-import random
 
-# --- The Universal Simulation Engine ---
-def run_simulation(
-    name: str, 
-    env: Any, 
-    agent_id: str, 
-    action_fn: Callable[[Any], Any], 
-    risk_monitor: Any, 
-    risk_adapter: Callable[[Any], Any],
-    steps: int = 50
-):
-    print(f"\n--- Running Vertical: {name} ---")
-    observation = env.reset()
+async def run_vertical_test(
+    vertical_name: str,
+    env: Any,
+    agent_id: str,
+    action_fn: Callable[[Any], Any],
+    dataset: Dict[str, Any],
+    setup_fn: Callable[[Any], None] = None
+) -> bool:
+    """
+    Runs a simulation using the core engine and checks if risk is detected.
+    """
+    print(f"\n--- Running Vertical: {vertical_name} ---")
     
+    # 1. Setup Risk Monitor & Callback
+    risk_monitor = dataset['monitor']
+    risk_adapter = dataset['adapter']
     risk_detected = False
     
-    for t in range(steps):
-        # 1. Agent Decision
-        action = action_fn(observation)
+    async def on_step(update: Dict[str, Any]):
+        nonlocal risk_detected
+        obs = update['observation']
+        agent = update['agent_id']
         
-        # 2. Environment Step
-        # Handle API variance (OrderBook uses dict action, Warehouse uses str/dict)
-        # Assuming env.step signature is roughly compatible or handled by action
+        # Adapt observation for the specific risk monitor
+        risk_input = risk_adapter(obs, agent)
         
-        # Helper for different env signatures if needed
-        if hasattr(env, 'portfolios'): # OrderBook
-             observation, _, _, info = env.step(action)
-        else: # Warehouse
-             observation, _, _, info = env.step(action, agent_id=agent_id)
-        
-        # 3. Risk Check
-        # Standardize input to risk monitor via adapter
-        risk_input = risk_adapter(observation)
-        violations = risk_monitor.check_risk(agent_id, risk_input)
-        
+        # Check Risk
+        try:
+             violations = risk_monitor.check_risk(agent, risk_input)
+        except TypeError:
+            if isinstance(risk_input, tuple):
+                violations = risk_monitor.check_risk(agent, *risk_input)
+            else:
+                violations = risk_monitor.check_risk(agent, risk_input)
+
         if violations:
-            print(f"[STEP {t}] RISK VIOLATION: {violations[0]['type']} - {violations[0]['details']}")
+            print(f"[RISK DETECTED] {vertical_name}: {violations[0]}")
             risk_detected = True
+        
+        # DEBUG
+        if 'trades' in update.get('info', {}):
+             trades = update['info']['trades']
+             if trades:
+                 print(f"DEBUG: {vertical_name} Trades: {len(trades)}")
+    
+    # 2. Init Engine (This calls env.reset())
+    engine = SimulationEngine(env=env)
+    engine.on_step_callback = on_step
+    
+    # 3. Post-Init Setup (Inject Liquidity etc.)
+    if setup_fn:
+        setup_fn(engine.env)
+    
+    # 4. Run Loop
+    steps = 50
+    for i in range(steps):
+        state = await engine.get_state(agent_id)
+        action = action_fn(state)
+        await engine.perform_action(agent_id, action)
+        
+        if risk_detected:
             break
             
     if risk_detected:
-        print(f"SUCCESS: {name} simulation correctly flagged risk.")
+        print(f"SUCCESS: {vertical_name} simulation correctly flagged risk.")
         return True
     else:
-        print(f"FAILURE: {name} simulation finished without detecting risk.")
+        print(f"FAILURE: {vertical_name} simulation finished without detecting risk.")
         return False
 
 # --- Scenario 1: Logistics ---
-def test_logistics():
-    env = WarehouseEnv(battery_drain=5.0) # Fast drain
+def setup_logistics():
+    env = WarehouseEnv(config={"battery_drain": 5.0}) 
     agent_id = "worker_1"
     risk_monitor = LogisticsRiskMonitor(min_battery=20.0)
     
     def action_fn(obs):
-        return "UP" # Just move
+        return "UP" 
         
-    def risk_adapter(obs):
-        # Obs in Warehouse is the state dict? Or we dig it out?
-        # Env.step returns state for that agent in WarehouseEnv
-        return obs # It IS the state dict
+    def risk_adapter(obs, agent_id):
+        return obs
         
-    return run_simulation("LOGISTICS (Warehouse)", env, agent_id, action_fn, risk_monitor, risk_adapter)
+    return {
+        "name": "LOGISTICS (Warehouse)",
+        "env": env,
+        "agent_id": agent_id,
+        "action_fn": action_fn,
+        "dataset": {
+            "monitor": risk_monitor,
+            "adapter": risk_adapter
+        },
+        "setup_fn": None
+    }
 
 # --- Scenario 2: Finance ---
-def test_finance():
+def setup_finance():
     env = OrderBookEnv(start_cash=100000.0)
     agent_id = "trader_1"
-    env.portfolios['mm'] = {'cash': 1e9, 'inventory': 10000}
     
-    risk_monitor = FinancialRiskMonitor(max_position=100, max_drawdown=0.05)
-    
-    # Setup Liquidity for valid pricing
-    env.book.add_order('BUY', 100.0, 1000, 'mm_b', 'mm')
-    env.book.add_order('SELL', 100.0, 1000, 'mm_s', 'mm')
+    def setup_liquidity(env_instance):
+        trades1 = env_instance.book.add_order('BUY', 90.0, 1000, 'mm_b', 'mm')
+        trades2 = env_instance.book.add_order('SELL', 100.0, 1000, 'mm_s', 'mm')
+        print(f"DEBUG: Liquidity Injected. Asks: {len(env_instance.book.asks)}")
+
+    risk_monitor = FinancialRiskMonitor(max_position=20, max_drawdown=0.05)
     
     def action_fn(obs):
-        # Buy aggressively to hit position limit
-        # Price 100. Limit 100. 
-        # Buy 20 per step -> 5 steps to limit
-        return {'type': 'LIMIT', 'side': 'BUY', 'price': 100.0, 'quantity': 25, 'id': f'b_{random.randint(0,1e6)}', 'agent_id': agent_id}
+        return {
+            'type': 'LIMIT', 
+            'side': 'BUY', 
+            'price': 100.0, 
+            'quantity': 25, 
+            'id': f'b_{random.randint(0,1000000)}', 
+            'agent_id': agent_id
+        }
         
-    def risk_adapter(obs):
-        # Need to return (portfolio, price) for FinancialRiskMonitor?
-        # Wait, check_risk takes (agent_id, portfolio, price).
-        # But we standarized on (agent_id, risk_input).
-        # We can't change the signature of FinancialRiskMonitor easily without breaking previous tests
-        # So we wrap it? Or use a Lambda that calls it correctly?
-        # The generic loop calls: `risk_monitor.check_risk(agent_id, risk_input)`
-        # So specific monitor adapter must expect `risk_input`.
-        # BUT FinancialRiskMonitor.check_risk expects 3 args.
-        pass
-    
-    # Wrapper for Finance Monitor to match generic Loop Signature
-    class FinanceMonitorWrapper:
-        def __init__(self, monitor): self.monitor = monitor
-        def check_risk(self, agent_id, input_data):
-            port, price = input_data
-            return self.monitor.check_risk(agent_id, port, price)
-            
-    wrapper = FinanceMonitorWrapper(risk_monitor)
-    
-    def risk_adapter(obs):
-        port = obs['portfolios'][agent_id]
-        mid = obs['mid_price']
-        return (port, mid)
+    def risk_adapter(obs, agent_id):
+        portfolios = obs.get('portfolios', {})
+        port = portfolios.get(agent_id, {'cash': 0, 'inventory': 0})
+        mid_price = obs.get('mid_price', 100.0)
+        return (port, mid_price)
         
-    return run_simulation("FINANCE (OrderBook)", env, agent_id, action_fn, wrapper, risk_adapter)
+    return {
+        "name": "FINANCE (OrderBook)",
+        "env": env,
+        "agent_id": agent_id,
+        "action_fn": action_fn,
+        "dataset": {
+            "monitor": risk_monitor,
+            "adapter": risk_adapter
+        },
+        "setup_fn": setup_liquidity
+    }
 
-if __name__ == "__main__":
-    p1 = test_logistics()
-    p2 = test_finance()
+async def main():
+    # Clear logs
+    with open("finance_debug.txt", "w") as f: f.write("")
     
-    if p1 and p2:
+    # 1. Logistics
+    log_setup = setup_logistics()
+    r1 = await run_vertical_test(
+        log_setup['name'], 
+        log_setup['env'], 
+        log_setup['agent_id'], 
+        log_setup['action_fn'], 
+        log_setup['dataset'],
+        log_setup['setup_fn']
+    )
+    
+    # 2. Finance
+    fin_setup = setup_finance()
+    r2 = await run_vertical_test(
+        fin_setup['name'], 
+        fin_setup['env'], 
+        fin_setup['agent_id'], 
+        fin_setup['action_fn'], 
+        fin_setup['dataset'],
+        fin_setup['setup_fn']
+    )
+    
+    if r1 and r2:
         print("\nALL VERTICALS CONSISTENT.")
+        sys.exit(0)
     else:
         print("\nCROSS-VERTICAL TEST FAILED.")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except Exception as e:
+        print(f"CRASH: {e}")
         sys.exit(1)
