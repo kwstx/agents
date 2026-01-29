@@ -1,0 +1,26 @@
+# Project Configuration
+project_name: "Agent Forge MVP"
+version: "0.1.0"
+
+# Vertical Targeting (example: robotics, finance, coding)
+vertical: "general"
+
+# Vertical Specific Settings
+verticals:
+  general:
+    description: "General purpose agent playground"
+  robotics:
+    description: "Simulation environment for robotics"
+    sim_backend: "pybullet"
+  finance:
+    description: "Market analysis and trading agents"
+    data_source: "local_csv"
+
+# Global System Settings
+logging:
+  level: "INFO"
+  save_path: "logs/"
+
+storage:
+  type: "sqlite"
+  path: "data/memory.db"

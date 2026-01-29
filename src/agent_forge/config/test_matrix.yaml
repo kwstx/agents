@@ -1,0 +1,70 @@
+scenarios:
+  baseline:
+    description: "Standard 2-agent setup for basic verification"
+    agent_count: 2
+    env_size: 10
+    duration_s: 10
+    stress_config: {}
+
+  crowded:
+    description: "High agent density test"
+    agent_count: 5
+    env_size: 8
+    duration_s: 15
+    stress_config: {}
+
+  chaos_monkey:
+    description: "Simulation with active failure injection"
+    agent_count: 3
+    env_size: 10
+    duration_s: 20
+    stress_config:
+      failure_rate: 0.1
+      latency_ms: 100
+
+  coordination_test:
+    description: "Collaborative agents sharing state to optimize exploration"
+    agent_count: 2
+    agent_type: "collaborative"
+    env_size: 5
+    duration_s: 5
+    stress_config: {}
+
+  communication_stress:
+    description: "High chatter with 20% packet loss and latency"
+    agent_count: 5
+    agent_type: "collaborative" 
+    env_size: 10
+    duration_s: 15
+    stress_config:
+      drop_rate: 0.2
+      latency_ms: 200
+
+  learning_marathon:
+    description: "Extended run to measure learning performance"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 5
+    duration_s: 300
+    stress_config: {}
+
+  benchmark_quick:
+    description: "Ultra fast run for iteration speed testing"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 5
+  test_5x5:
+    description: "Reference environment (Training domain)"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 5
+    duration_s: 30
+    stress_config: {}
+
+  test_10x10:
+    description: "Generalization environment (New domain)"
+    agent_count: 1
+    agent_type: "learning"
+    env_size: 10
+    duration_s: 30
+    stress_config: {}
