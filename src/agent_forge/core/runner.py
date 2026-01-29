@@ -14,7 +14,7 @@ class HeadlessRunner:
     """
     def __init__(self):
         self.bus: Optional[MessageBus] = None
-        self.engine: Optional[SimulationEngine] = None
+        self.engine: SimulationEngine = SimulationEngine(env=None)
         self.agents: List[WarehouseAgent] = []
         self._loop_task: Optional[asyncio.Task] = None
         self.is_running = False
@@ -33,7 +33,12 @@ class HeadlessRunner:
         self.logger = InteractionLogger(db_path=log_db_path)
         
         env = WarehouseEnv(size=grid_size, num_agents=num_agents, config=config)
-        self.engine = SimulationEngine(env, logger=self.logger, stress_config=config)
+        env = WarehouseEnv(size=grid_size, num_agents=num_agents, config=config)
+        
+        # Update existing engine instead of creating new one
+        self.engine.set_env(env)
+        self.engine.logger = self.logger
+        self.engine.stress_config = config
         
         # 3. Agents with Zero Checkpoints
         self.agents = []

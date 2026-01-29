@@ -10,7 +10,7 @@ from agent_forge.core.compliance import ComplianceAuditor
 
 class SimulationEngine:
     def __init__(self, 
-                 env: BaseEnvironment, 
+                 env: Optional[BaseEnvironment] = None, 
                  logger: Optional[InteractionLogger] = None,
                  stress_config: Optional[Dict[str, Any]] = None):
         """
@@ -56,6 +56,11 @@ class SimulationEngine:
         self._pause_event.set() # Start unpaused
         self.reset()
 
+    def set_env(self, env: BaseEnvironment):
+        """Swaps the environment and resets the state."""
+        self.env = env
+        self.reset()
+        
     def pause(self):
         """Pauses the simulation."""
         self._pause_event.clear()
@@ -65,7 +70,11 @@ class SimulationEngine:
         self._pause_event.set()
 
     def reset(self):
-        self._current_observation = self.env.reset()
+        if self.env:
+            self._current_observation = self.env.reset()
+        else:
+            self._current_observation = None
+            
         self._last_reward = 0.0
         self._last_done = False
         self._last_info = {}
