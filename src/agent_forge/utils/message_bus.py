@@ -56,7 +56,7 @@ class Message:
                 raise ValueError(f"Invalid parent_id '{self.parent_id}'. Must be a valid UUID string.")
 
 class MessageBus:
-    def __init__(self, log_path: Optional[str] = "logs/message_bus.jsonl", max_queue_size: int = 1000, dlq_limit: int = 50):
+    def __init__(self, log_path: str = "logs/message_bus.jsonl", max_queue_size: int = 1000, dlq_limit: int = 50):
         self._subscribers: Dict[str, List[Callable[[Message], Any]]] = {}
         # Backpressure: Limit queue size
         self._queue: asyncio.Queue = asyncio.Queue(maxsize=max_queue_size)
@@ -75,9 +75,9 @@ class MessageBus:
         self._latency_max = 0.0
         self._drop_rate = 0.0
         
-        # Ensure log directory exists ONLY if path is set
-        if self._log_path:
-            os.makedirs(os.path.dirname(self._log_path), exist_ok=True)
+        # Ensure log directory exists
+        if log_path:
+            os.makedirs(os.path.dirname(log_path), exist_ok=True)
 
     @property
     def qsize(self):
