@@ -9,9 +9,8 @@ import os
 import uuid
 import random # Added for chaos
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("MessageBus")
+from agent_forge.utils.logger import get_logger
+logger = get_logger("MessageBus")
 
 @dataclass
 class Message:
@@ -76,7 +75,7 @@ class MessageBus:
         self._drop_rate = 0.0
         
         # Ensure log directory exists
-        if log_path:
+        if log_path and os.path.dirname(log_path):
             os.makedirs(os.path.dirname(log_path), exist_ok=True)
 
     @property

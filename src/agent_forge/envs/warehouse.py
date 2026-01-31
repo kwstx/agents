@@ -20,6 +20,9 @@ class WarehouseEnv(BaseEnvironment):
         self.battery_drain_rate = self.config.get("battery_drain_rate", 2.0) # per second
         self.safety_rails = self.config.get("safety_rails", False) # If False, allows out-of-bounds
         
+        # Local Random for Determinism
+        self._rng = random.Random(self.config.get("seed", 42))
+        
         self.agents = {} # agent_id -> state dict
         
         # Define Zones
@@ -55,8 +58,8 @@ class WarehouseEnv(BaseEnvironment):
             for _ in range(100):
                 # Don't spawn in pickup/dropoff columns to avoid immediate congestion
                 # Spawn in middle area x=[1, size-2]
-                rx = random.randint(1, self.size-2)
-                ry = random.randint(0, self.size-1)
+                rx = self._rng.randint(1, self.size-2)
+                ry = self._rng.randint(0, self.size-1)
                 candidate = (rx, ry)
                 if candidate not in occupied:
                     pos = candidate
@@ -64,7 +67,7 @@ class WarehouseEnv(BaseEnvironment):
             
             if pos is None:
                 # Fallback: Just pick random valid spot even if occupied (shouldn't happen with reasonable density)
-                pos = (random.randint(1, self.size-2), random.randint(0, self.size-1))
+                pos = (self._rng.randint(1, self.size-2), self._rng.randint(0, self.size-1))
                 
             self.agents[agent_id] = {
                 "position": pos,

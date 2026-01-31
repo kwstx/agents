@@ -38,7 +38,18 @@ class HeadlessRunner:
         # Update existing engine instead of creating new one
         self.engine.set_env(env)
         self.engine.logger = self.logger
-        self.engine.stress_config = config
+        self.engine.stress_config = config or {}
+        
+        # Reinitialize adversarial middleware with new config
+        # Note: failure_rate is for _apply_stress() exceptions, drop_rate is for silent drops
+        from agent_forge.core.adversarial import AdversarialMiddleware, AdversarialConfig
+        adv_conf = AdversarialConfig(
+            enabled=True if config else False,
+            jitter_rate=config.get("latency_rate", 0.0) if config else 0.0,
+            latency_range=tuple(config.get("latency_range", (0.0, 0.0))) if config else (0.0, 0.0),
+            drop_rate=config.get("drop_rate", 0.0) if config else 0.0,  # Separate from failure_rate
+        )
+        self.engine.adversary = AdversarialMiddleware(adv_conf)
         
         # 3. Agents with Zero Checkpoints
         self.agents = []
@@ -94,6 +105,6 @@ class HeadlessRunner:
         """Returns a deep copy of the current simulation state."""
         snapshot = {}
         for agent in self.agents:
-            state = await self.engine.get_state(agent.agent_id)
+            state = await self.engine.get_state(agent.agent_id, include_stress=False)
             snapshot[agent.agent_id] = state.copy()
         return snapshot

@@ -5,8 +5,12 @@ import inspect
 from typing import Any, Dict, Optional
 from agent_forge.core.base_env import BaseEnvironment
 from agent_forge.utils.interaction_logger import InteractionLogger
+from agent_forge.utils.logger import get_logger
 from agent_forge.core.adversarial import AdversarialMiddleware, AdversarialConfig
 from agent_forge.core.compliance import ComplianceAuditor
+from agent_forge.core.risk import RiskMonitor
+
+sys_logger = get_logger("Engine")
 
 class SimulationEngine:
     def __init__(self, 
@@ -21,10 +25,9 @@ class SimulationEngine:
         self.stress_config = stress_config or {}
         self.on_step_callback = None # Callable[[Dict], Awaitable[None]]
         
-        # Auditor
-        # Grid size hardcoded for MVP or inferred? 
-        # Ideally passed in config, defaulting to 10 for now matching Warehouse default
+        # Auditor & Risk
         self.auditor = ComplianceAuditor(grid_size=10)
+        self.risk_monitor = RiskMonitor(latency_threshold=0.1)
         
         # Seed Control
         if stress_config and "seed" in stress_config:
@@ -36,11 +39,12 @@ class SimulationEngine:
         
         # Adversarial Middleware
         # For now, disable by default unless stress_config says otherwise
+        # Note: failure_rate is for _apply_stress() exceptions, drop_rate is for silent action drops
         adv_conf = AdversarialConfig(
             enabled=True if stress_config else False,
             jitter_rate=stress_config.get("latency_rate", 0.0) if stress_config else 0.0,
             latency_range=stress_config.get("latency_range", (0.0, 0.0)) if stress_config else (0.0, 0.0),
-            drop_rate=stress_config.get("failure_rate", 0.0) if stress_config else 0.0,
+            drop_rate=stress_config.get("drop_rate", 0.0) if stress_config else 0.0,  # Separate from failure_rate
         )
         self.adversary = AdversarialMiddleware(adv_conf)
         
@@ -93,99 +97,167 @@ class SimulationEngine:
             if random.random() < self.stress_config["failure_rate"]:
                 raise Exception("Simulated Network Failure")
 
-    async def get_state(self, agent_id: str) -> Any:
+    async def get_state(self, agent_id: str, include_stress: bool = True) -> Any:
         """Returns the current perception of the state for the agent."""
-        await self._pause_event.wait()
-        await self._apply_stress()
-        if hasattr(self.env, "get_agent_state"):
-            return self.env.get_agent_state(agent_id)
-        return self._current_observation
+        try:
+            await self._pause_event.wait()
+            if include_stress:
+                await self._apply_stress()
+            if hasattr(self.env, "get_agent_state"):
+                return self.env.get_agent_state(agent_id)
+            return self._current_observation
+        except Exception as e:
+            await self._broadcast_error(agent_id, e, "engine_exception")
+            raise e
 
     async def perform_action(self, agent_id: str, action: Any) -> bool:
         """
         Executes an action in the environment.
         Returns True if successful, False if the episode is done or failed.
         """
-        # await self._apply_stress() # Legacy simple stress
-        
-        # New Adversarial Middleware
-        should_proceed = await self.adversary.intercept_action(agent_id, str(action))
-        if not should_proceed:
-             # Action Dropped
-             return True # Return True (alive) but did nothing
-        
-        # Check Pause
-        await self._pause_event.wait()
-        
-        if self._last_done:
+        try:
+            start = time.time()
+            await self._apply_stress() # Enabled for Fault Injection Test
+            
+            # New Adversarial Middleware
+            should_proceed = await self.adversary.intercept_action(agent_id, str(action))
+            if not should_proceed:
+                 # Action Dropped
+                 return True # Return True (alive) but did nothing
+            
+            # Check Pause
+            await self._pause_event.wait()
+            
+            if self._last_done:
+                return False
+
+            # Execute step
+            step_timeout = self.stress_config.get("step_timeout", 60.0) # Default 60s
+            
+            def _step_wrapper():
+                 try:
+                     return self.env.step(action, agent_id=agent_id)
+                 except TypeError:
+                     return self.env.step(action)
+
+            try:
+                obs, reward, done, info = await asyncio.wait_for(
+                    asyncio.to_thread(_step_wrapper), 
+                    timeout=step_timeout
+                )
+            except asyncio.TimeoutError:
+                raise Exception(f"Agent {agent_id} Deadlocked: Step timeout after {step_timeout}s")
+                 
+            duration = time.time() - start
+            info["duration"] = duration
+            
+            # Audit Check
+            violations = self.auditor.audit_state(agent_id, obs)
+            if violations:
+                # Risk Trace Integration
+                violation_dicts = []
+                for v in violations:
+                    violation_dicts.append({
+                        "rule": v.rule_id, 
+                        "message": v.message, 
+                        "context": v.context, 
+                        "severity": v.severity,
+                        "step_duration": info.get("duration")
+                    })
+                self.risk_monitor.record_violations(agent_id, violation_dicts)
+
+                # Convert Violation objects to dicts for JSON serialization
+                info["violations"] = [
+                    {"rule": v.rule_id, "msg": v.message, "context": v.context, "severity": v.severity} 
+                    for v in violations
+                ]
+
+                # Check for critical violations
+                critical_violations = [v for v in violations if v.severity == "critical"]
+                if critical_violations:
+                    raise Exception(f"Critical Compliance Violation: {critical_violations[0].message}")
+            
+            # Update internal state
+            self._current_observation = obs
+            self._last_reward = reward
+            self._last_done = done
+            self._last_info = info
+            
+            # Log interaction
+            if self.logger:
+                # Deterministic hash of state
+                state_str = str(obs) 
+                state_hash = str(hash(state_str)) # Simple hash for MVP tuple state
+                
+                self.logger.log_interaction(
+                    agent_id=agent_id,
+                    action=str(action),
+                    state=obs,
+                    reward=reward,
+                    metadata=info,
+                    state_hash=state_hash
+                )
+
+            if self.on_step_callback:
+                # Broadcast the full state delta or snapshot
+                # For MVP, we send the agent's observation update
+                # Ideally we send the Full Env State if possible
+                self._sequence_id += 1
+                update = {
+                    "type": "step",
+                    "seq_id": self._sequence_id,
+                    "agent_id": agent_id,
+                    "step_count": self._sequence_id, # Simplify: Sequence is global step count
+                    "agent_positions": getattr(self.env, "agent_positions", {}),
+                    "grid_state": getattr(self.env, "grid", []), # Assuming grid is accessible
+                    "stats": {"reward": reward, "duration": info.get("duration", 0)},
+                    "observation": obs,
+                    "info": info,
+                    "timestamp": time.time()
+                }
+                if inspect.iscoroutinefunction(self.on_step_callback):
+                    await self.on_step_callback(update)
+                else:
+                    self.on_step_callback(update)
+                
+            return not done
+            
+        except Exception as e:
+            await self._broadcast_error(agent_id, e, "engine_critical_failure")
             return False
 
-        # Execute step
-        start = time.time()
-        # Execute step
-        start = time.time()
+    async def get_feedback(self, agent_id: str, include_stress: bool = True) -> Dict[str, Any]:
+        """Returns the feedback (reward, done, info) from the last action."""
         try:
-             obs, reward, done, info = self.env.step(action, agent_id=agent_id)
-        except TypeError:
-             obs, reward, done, info = self.env.step(action)
-        duration = time.time() - start
-        info["duration"] = duration
-        
-        # Audit Check
-        violations = self.auditor.audit_state(agent_id, obs)
-        if violations:
-            # Convert Violation objects to dicts for JSON serialization
-            info["violations"] = [
-                {"rule": v.rule_id, "msg": v.message, "context": v.context} 
-                for v in violations
-            ]
-        
-        # Update internal state
-        self._current_observation = obs
-        self._last_reward = reward
-        self._last_done = done
-        self._last_info = info
-        
-        # Log interaction
-        if self.logger:
-            # Deterministic hash of state
-            state_str = str(obs) 
-            state_hash = str(hash(state_str)) # Simple hash for MVP tuple state
-            
-            self.logger.log_interaction(
-                agent_id=agent_id,
-                action=str(action),
-                state=obs,
-                reward=reward,
-                metadata=info,
-                state_hash=state_hash
-            )
+            if include_stress:
+                await self._apply_stress()
+            return {
+                "reward": self._last_reward,
+                "done": self._last_done,
+                "info": self._last_info
+            }
+        except Exception as e:
+            await self._broadcast_error(agent_id, e, "engine_exception")
+            raise e
 
+    async def _broadcast_error(self, agent_id: str, e: Exception, event_type: str):
+        """Internal helper to log and broadcast engine errors."""
+        self.pause()
+        sys_logger.error(f"{event_type.replace('_', ' ').title()}: {e}", 
+                         extra={"agent_id": agent_id, "event": event_type})
+        
+        if self.logger:
+            self.logger.log_interaction(agent_id, "error", str(e), 0.0, {}, "ENGINE FAILURE")
+            
         if self.on_step_callback:
-            # Broadcast the full state delta or snapshot
-            # For MVP, we send the agent's observation update
-            # Ideally we send the Full Env State if possible
-            self._sequence_id += 1
-            update = {
-                "type": "step",
+            error_update = {
+                "type": "error",
                 "seq_id": self._sequence_id,
                 "agent_id": agent_id,
-                "observation": obs,
-                "info": info,
+                "error": str(e),
                 "timestamp": time.time()
             }
             if inspect.iscoroutinefunction(self.on_step_callback):
-                await self.on_step_callback(update)
+                await self.on_step_callback(error_update)
             else:
-                self.on_step_callback(update)
-            
-        return not done
-
-    async def get_feedback(self, agent_id: str) -> Dict[str, Any]:
-        """Returns the feedback (reward, done, info) from the last action."""
-        await self._apply_stress()
-        return {
-            "reward": self._last_reward,
-            "done": self._last_done,
-            "info": self._last_info
-        }
+                self.on_step_callback(error_update)

@@ -1,5 +1,6 @@
 import asyncio
 import logging
+from agent_forge.utils.logger import get_logger
 import inspect
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional
@@ -20,8 +21,7 @@ class BaseAgent(ABC):
         self.running = False
         
         # Setup specific logger for this agent
-        self.logger = logging.getLogger(f"Agent.{agent_id}")
-        self.logger.setLevel(logging.INFO)
+        self.logger = get_logger(f"Agent.{agent_id}")
         # File handler could be added here for individual agent logs
         
         
@@ -160,7 +160,7 @@ class BaseAgent(ABC):
                 except asyncio.TimeoutError:
                     self.logger.error(f"Task execution timed out: {task}")
                     result = {"status": "failed", "error": "Execution Timed Out"}
-                    # We continue the loop, agent survives
+                    self.log_activity("task_error", {"task": str(task), "error": "Execution Timed Out"})
                 
                 self.task_queue.task_done()
                 self.state["status"] = "active"

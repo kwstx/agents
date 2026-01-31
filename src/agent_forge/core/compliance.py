@@ -10,6 +10,7 @@ class Violation:
     rule_id: str
     message: str
     context: Dict[str, Any]
+    severity: str = "warning" # warning, error, critical
 
 class ComplianceAuditor:
     def __init__(self, grid_size: int = 10):
@@ -28,14 +29,36 @@ class ComplianceAuditor:
         # Allow 0.0 (Dead), but not negative.
         battery = state.get("battery", 0.0)
         if battery < 0.0:
-            # We allow a tiny epsilon for float precision issues if needed, but strictly < 0 is usually a bug logic
             v = Violation(
                 agent_id=agent_id,
                 rule_id="PHYSICS_BATTERY_NEGATIVE",
-                message=f"Battery level negative: {battery}",
-                context={"battery": battery}
+                message=f"Battery level negative: {battery:.2f}",
+                context={"battery": battery},
+                severity="critical"
             )
             current_violations.append(v)
+        if battery < 15.0:
+            v = Violation(
+                agent_id=agent_id,
+                rule_id="PHYSICS_BATTERY_LOW",
+                message=f"Battery level low: {battery:.2f}%",
+                context={"battery": battery},
+                severity="warning"
+            )
+            current_violations.append(v)
+        if battery < 30.0:
+            v = Violation(
+                agent_id=agent_id,
+                rule_id="PHYSICS_BATTERY_DEGRADED",
+                message=f"Battery level degraded: {battery:.2f}%",
+                context={"battery": battery},
+                severity="warning"
+            )
+            current_violations.append(v)
+        
+        # Log Violations
+        # To avoid double-logging if multiple hit, maybe we filter? 
+        # But for RiskMonitor, we WANT multiple hits.
             
         # 2. Boundary: Position Check
         # Invariant: 0 <= x < size, 0 <= y < size
