@@ -1,0 +1,163 @@
+/* Export Screen Styles */
+
+.export-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.export-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 8px;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.export-config-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.preview-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #0077dd;
+}
+
+.btn-success {
+    background: var(--risk-low);
+    color: var(--bg-primary);
+}
+
+.btn-success:hover:not(:disabled) {
+    background: #00dd77;
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--bg-panel);
+    border-color: var(--accent-blue);
+}
+
+.preview-text {
+    background: var(--bg-primary);
+    padding: 16px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.audit-log {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.log-entry {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    color: var(--text-secondary);
+    padding: 6px 8px;
+    background: var(--bg-primary);
+    border-left: 2px solid var(--accent-blue);
+    border-radius: 2px;
+}

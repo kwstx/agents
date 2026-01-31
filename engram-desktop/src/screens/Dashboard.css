@@ -1,0 +1,39 @@
+/* Dashboard Screen Styles */
+
+.dashboard-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.screen-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.screen-header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.screen-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 4px 0 0 0;
+}
+
+.dashboard-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 8px;
+    padding: 8px;
+    overflow: auto;
+}

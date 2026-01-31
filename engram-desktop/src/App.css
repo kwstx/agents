@@ -1,0 +1,210 @@
+/* Bloomberg Terminal-Inspired Styling */
+
+:root {
+    /* Background */
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-panel: #1a1a1a;
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #888888;
+
+    /* Accent */
+    --accent-blue: #0066cc;
+    --accent-orange: #ff6600;
+
+    /* Risk Colors */
+    --risk-low: #00cc66;
+    --risk-medium: #ffcc00;
+    --risk-high: #ff6600;
+    --risk-critical: #ff00ff;
+
+    /* Borders */
+    --border-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+    font-size: 12px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: var(--accent-blue);
+    padding: 12px 20px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.header h1 {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+/* Panels */
+.panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel.full-width {
+    grid-column: 1 / -1;
+}
+
+.panel-header {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-content {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+}
+
+.panel-content p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* Status Badge */
+.status-badge {
+    background: var(--risk-low);
+    color: var(--bg-primary);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* Risk Colors */
+.risk-low {
+    color: var(--risk-low);
+    font-weight: bold;
+}
+
+.risk-medium {
+    color: var(--risk-medium);
+    font-weight: bold;
+}
+
+.risk-high {
+    color: var(--risk-high);
+    font-weight: bold;
+}
+
+.risk-critical {
+    color: var(--risk-critical);
+    font-weight: bold;
+}
+
+/* Data Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.data-table thead {
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.data-table th {
+    padding: 8px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.data-table td {
+    padding: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tbody tr:hover {
+    background: var(--bg-secondary);
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-secondary);
+    padding: 8px 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

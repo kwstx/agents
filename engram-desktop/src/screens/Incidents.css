@@ -1,0 +1,117 @@
+/* Incidents Screen Styles */
+
+.incidents-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.incidents-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 8px;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.incidents-table-panel,
+.incident-details-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.search-input,
+.filter-select {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    border-radius: 3px;
+}
+
+.search-input {
+    width: 200px;
+}
+
+.search-input:focus,
+.filter-select:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
+
+.data-table tbody tr.selected {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+}
+
+.severity-low {
+    color: var(--risk-low);
+    font-weight: bold;
+}
+
+.severity-medium {
+    color: var(--risk-medium);
+    font-weight: bold;
+}
+
+.severity-high {
+    color: var(--risk-high);
+    font-weight: bold;
+}
+
+.severity-critical {
+    color: var(--risk-critical);
+    font-weight: bold;
+}
+
+.incident-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-section {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.detail-section:last-child {
+    border-bottom: none;
+}
+
+.detail-section h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-blue);
+    margin: 0 0 8px 0;
+}
+
+.detail-section p {
+    margin: 4px 0;
+    line-height: 1.6;
+}
+
+.narrative-text {
+    background: var(--bg-primary);
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    color: var(--text-secondary);
+}
